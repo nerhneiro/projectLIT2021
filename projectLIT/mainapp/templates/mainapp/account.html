@@ -1,0 +1,46 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block title %} Account {% endblock %}
+{% block menu %}
+    <div class="menu">
+       <div class="menu-elements">
+        <ul class="menu-list">
+            <li class="menu-element"><a class="menu-element-href" href="{% url 'main' %}">News</a></li>
+            <li class="menu-element"><a class="menu-element-href" href="{% url 'playlists' %}">Playlists</a></li>
+            <li class="menu-element"><a class="menu-element-href" href="{% url 'accounts' %}">Connected accounts</a></li>
+            <li class="menu-element"><a href="#" class="menu-element-href">Settings</a></li>
+            <li class="log-out-element"><a class="menu-element-href" href="{% url 'register' %}">Log out</a></li>
+            <li class="menu-element-pressed"><a href="{% url 'account' %}">IRENE</a></li>
+            <li class="photo-element"><a href="{% url 'account' %}" ><img src="{% static 'img/ellipse.png' %}" alt="photo"></a></li>
+        </ul>
+    </div>
+    </div>
+{% endblock %}
+{% block content %}
+   <div class="account-content"> 
+   <div class="account-content-inside">
+      <div class="account-information-all">
+       <div class="account-picture">
+           <img class="profile-picture" src="{% static 'img/ellipse.svg' %}" alt="profile picture">
+       </div>
+       <div class="account-information">
+           <div class="account-information-main">
+               <p class="account-name-surname">Irene Skvortsova</p>
+           </div>
+           <div class="account-information-additional">
+               <p class="account-registration-date">Registered: 24 november 2020</p>
+               <p class="account-country">Country: Russia</p>
+               <p class="account-age">Age: 15</p>
+               <div class="account-connected-accounts">Connected accounts: 1</div>
+           </div>
+           <div class="account-settings">
+           <p class="logout"><a href="">Log out</a></p>
+           <p class="change-password"><a href="">Change password</a></p>
+           <p class="subscribe"><a href="">Subscribe to distribution</a></p>
+       </div>
+       </div>
+       </div>
+   </div>
+   </div>
+{% endblock %}
+
