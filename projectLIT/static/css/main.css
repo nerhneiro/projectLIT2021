@@ -13,8 +13,11 @@
 }
 .menu {
     width: 100%;
-    border-bottom: 1px grey solid;
+    /*border-bottom: 1px grey solid;*/
     padding-bottom: 10px;
+    background-color: #f6bd60;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 ul, li {
     display: block;
@@ -60,7 +63,7 @@ ul, li {
     letter-spacing: 0em;
 }
 .menu-list li a:hover {
-    color: gray;
+    color: #606C38;
 }
 .menu {
     margin-top: 12px;
@@ -70,6 +73,7 @@ ul, li {
 }
 .photo-element {
     float: right;
+    vertical-align: center;
 }
 .content {
     width: 80%;
@@ -346,10 +350,110 @@ html, body {
 
 
 /*NEWS PAGE*/
+.content-news-beginning-header {
+    color: black;
+    font-family: 'Roboto';
+    font-size: 3em;
+    line-height: 80px;
+    font-weight: 300;
+
+}
 .content-news {
     width: 80%;
     margin: auto;
     padding-top: 33px;
+    display: flex;
+    flex-direction: column;
+}
+.content-news-beginning-inside {
+    position: absolute;
+    width: 50%;
+    margin: 50px;
+}
+.content-news-beginning {
+    display: flex;
+    flex-direction: row;
+    /*background-color: #fe9653;*/
+    background-image: url("../../static/img/main_music_logo.jpeg");
+    min-height: 600px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color: #FD9956;
+}
+.content-news-beginning-button-register {
+    margin-right: 20px;
+    outline:0;
+  font-size:1em;
+  font-weight:600;
+  background:#FEFAE0;
+  border:none;
+  padding: 1em 2em;
+  transition:all .3s ease-out;
+  box-shadow:inset 0 -8px 0 0 rgba(0,0,0,.2),
+    1px 1px 0 0 #606C38,
+    2px 2px 0 0 #606C38,
+    3px 3px 0 0 #606C38,
+    4px 4px 0 0 #606C38,
+    5px 5px 0 0 #606C38,
+    6px 6px 0 0 #606C38,
+    7px 7px 0 0 #606C38,
+    8px 8px 0 0 #606C38,
+    9px 9px 0 0 #606C38,
+    10px 10px 0 0 #606C38,
+    11px 11px 0 0 #606C38,
+    12px 12px 0 0 #606C38;
+}
+.content-news-beginning-button-register:hover{
+  color:#606C38;
+}
+.content-news-beginning-button-register:active{
+  color:#222;
+  box-shadow:inset 0 -4px 0 0 rgba(0,0,0,.1),
+    1px 1px 0 0 #606C38,
+    2px 2px 0 0 #606C38,
+    3px 3px 0 0 #606C38,
+    4px 4px 0 0 #606C38,
+    5px 5px 0 0 #606C38;
+}
+.content-news-beginning-button-login {
+    /*height: 5em;*/
+    /*width: 10em;*/
+    outline:0;
+  font-size:1em;
+  font-weight:600;
+  background:#FEFAE0;
+  border:none;
+  padding: 1em 2em;
+  transition:all .3s ease-out;
+  box-shadow:inset 0 -8px 0 0 rgba(0,0,0,.2),
+    1px 1px 0 0 #606C38,
+    2px 2px 0 0 #606C38,
+    3px 3px 0 0 #606C38,
+    4px 4px 0 0 #606C38,
+    5px 5px 0 0 #606C38,
+    6px 6px 0 0 #606C38,
+    7px 7px 0 0 #606C38,
+    8px 8px 0 0 #606C38,
+    9px 9px 0 0 #606C38,
+    10px 10px 0 0 #606C38,
+    11px 11px 0 0 #606C38,
+    12px 12px 0 0 #606C38;
+}
+.content-news-beginning-button-login:hover{
+  color:#606C38;
+}
+.content-news-beginning-button-login:active{
+  color:#222;
+  box-shadow:inset 0 -4px 0 0 rgba(0,0,0,.1),
+    1px 1px 0 0 #606C38,
+    2px 2px 0 0 #606C38,
+    3px 3px 0 0 #606C38,
+    4px 4px 0 0 #606C38,
+    5px 5px 0 0 #606C38;
+}
+.content-news-beginning-img {
+    width: 80%;
+    margin-left: 20%;
 }
 .content-news-header {
     display: flex;
@@ -383,6 +487,7 @@ html, body {
 
 .content-news-faq {
     border-radius: 5px;
+
 }
 .content-news-faq-header {
     color: black;
