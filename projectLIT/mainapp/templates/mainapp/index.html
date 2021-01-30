@@ -11,7 +11,7 @@
             <li class="menu-element"><a href="#" class="menu-element-href">Settings</a></li>
             <li class="log-out-element"><a class="menu-element-href" href="{% url 'register' %}">Log out</a></li>
             <li class="menu-element-name"><a href="{% url 'account' %}">IRENE</a></li>
-            <li class="photo-element"><a href="{% url 'account' %}" ><img src="{% static 'img/ellipse.png' %}" alt="photo"></a></li>
+            <li class="photo-element"><a href="{% url 'account' %}" ><img src="{% static 'img/gramophone.png' %}" alt="photo"></a></li>
         </ul>
     </div>
     </div>
@@ -20,13 +20,11 @@
     <div class="content-news-beginning">
     <div class="content-news-beginning-inside">
         <p class="content-news-beginning-header">Ready to understand your favourite artists better?</p>
-    <button class="content-news-beginning-button-register">Create an account</button>
-     <button class="content-news-beginning-button-login">Log in</button>
+        <a href="{% url 'register' %}"><button class="content-news-beginning-button-register">Create an account</button></a>
+        <a href="{% url 'signin' %}"><button class="content-news-beginning-button-login">Log in</button></a>
     </div>
-
     </div>
     <div class="content-news">
-
     <div class="content-news-header">
      <a class="welcome-block-href" href="">
       <div class="welcome-block">
@@ -66,3 +64,15 @@
       </div>
     </div>
 {%  endblock %}
+{%  block footer %}
+    <div class="footer">
+    <div class="footer-inside">
+    <div class="contacts">
+        <p class="contacts-p">If you have any suggestions:</p>
+        <p class="contacts-gmail">nerhneiro@gmail.com</p>
+        <p class="contacts-github">Github: nerhneiro</p>
+        <p class="contacts-ig">Instagram: @nerhneiro</p>
+    </div>
+    </div>
+    </div>
+{% endblock %}

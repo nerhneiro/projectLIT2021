@@ -3,6 +3,8 @@
 .menu-list {
     display: flex;
     width: 100%;
+    padding-top: 10px;
+    font-size: 2.5vh;
 }
 .menu-element {
     float: left;
@@ -27,7 +29,7 @@ ul, li {
     color: black;
     text-decoration: none;
     font-family: 'Roboto';
-    font-size: 1.5em;
+    /*font-size: 1.5em;*/
     line-height: 23px;
     font-weight: 500;
 }
@@ -39,7 +41,7 @@ ul, li {
     color: black;
     text-decoration: none;
     font-family: 'Roboto';
-    font-size: 1.5em;
+    /*font-size: 1.5em;*/
     font-weight: 300;
     line-height: 23px;
     letter-spacing: 0em;
@@ -48,7 +50,7 @@ ul, li {
 .menu-element-name {
     color:  black;
     font-family: 'Roboto';
-    font-size: 1.5em;
+    font-size: 2.5vh;
     font-weight: 300;
     line-height: 23px;
     letter-spacing: 0em;
@@ -63,7 +65,7 @@ ul, li {
     letter-spacing: 0em;
 }
 .menu-list li a:hover {
-    color: #606C38;
+    color: #BC6C25;
 }
 .menu {
     margin-top: 12px;
@@ -74,6 +76,9 @@ ul, li {
 .photo-element {
     float: right;
     vertical-align: center;
+}
+.photo-element img {
+    height: 100px;
 }
 .content {
     width: 80%;
@@ -92,6 +97,7 @@ ul, li {
     margin: auto;
     width: 100%;
 }
+
 .playlist {
     width: 15vw;
     height: 15vw;
@@ -106,6 +112,7 @@ ul, li {
     margin-bottom: 60px;
     border-radius: 5px;
 }
+
 .playlist:hover {
    background: rgb(253,85,45);
 background: linear-gradient(0deg, rgba(253,85,45,0.8673844537815126) 0%, rgba(253,187,45,1) 100%);
@@ -240,7 +247,7 @@ html, body {
 .song {
     min-height: 88px;
     display: inline-block;
-    background-color: #D6E9FF;
+    background-color: #BBC893;
     vertical-align: middle;
     width: 100%;
     border-radius: 5px;
@@ -313,7 +320,7 @@ html, body {
     width: 150px;
     height: 50px;
     position: absolute;
-    background-color: #87CEEB;
+    background-color: #6B7A3E;
     bottom: 70px;
     right: 10px;
     border-radius: 5px;
@@ -322,29 +329,29 @@ html, body {
 }
 .share-your-song {
     width: 100%;
-    background-color: #87CEEB;
+    background-color: #6B7A3E;
     height: 50%;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    border-bottom: 1px solid #ADD8E6;
+    border-bottom: 1px solid #283618;
     padding-top: 10px;
     visibility: inherit;
 }
 .share-your-song:hover{
-    background-color: #ADD8E6;
+    background-color: #8FA352;
     cursor: pointer;
 }
 .add-to-queue-your-song {
     width: 100%;
     visibility: inherit;
-    background-color: #87CEEB;
+    background-color: #6B7A3E;
     height: 50%;
     padding-top: 10px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
 .add-to-queue-your-song:hover {
-    background-color: #ADD8E6;
+    background-color: #8FA352;
     cursor: pointer;
 }
 
@@ -404,11 +411,12 @@ html, body {
     12px 12px 0 0 #606C38;
 }
 .content-news-beginning-button-register:hover{
-  color:#606C38;
+    color:#606C38;
+    cursor: pointer;
 }
 .content-news-beginning-button-register:active{
-  color:#222;
-  box-shadow:inset 0 -4px 0 0 rgba(0,0,0,.1),
+    color:#222;
+    box-shadow:inset 0 -4px 0 0 rgba(0,0,0,.1),
     1px 1px 0 0 #606C38,
     2px 2px 0 0 #606C38,
     3px 3px 0 0 #606C38,
@@ -419,13 +427,13 @@ html, body {
     /*height: 5em;*/
     /*width: 10em;*/
     outline:0;
-  font-size:1em;
-  font-weight:600;
-  background:#FEFAE0;
-  border:none;
-  padding: 1em 2em;
-  transition:all .3s ease-out;
-  box-shadow:inset 0 -8px 0 0 rgba(0,0,0,.2),
+    font-size:1em;
+    font-weight:600;
+    background:#FEFAE0;
+    border:none;
+    padding: 1em 2em;
+    transition:all .3s ease-out;
+    box-shadow:inset 0 -8px 0 0 rgba(0,0,0,.2),
     1px 1px 0 0 #606C38,
     2px 2px 0 0 #606C38,
     3px 3px 0 0 #606C38,
@@ -440,7 +448,8 @@ html, body {
     12px 12px 0 0 #606C38;
 }
 .content-news-beginning-button-login:hover{
-  color:#606C38;
+    color:#606C38;
+    cursor: pointer;
 }
 .content-news-beginning-button-login:active{
   color:#222;
@@ -461,7 +470,7 @@ html, body {
 }
 .welcome-block {
     width: 90%;
-    background-color: #CDEDFD;
+    background-color: #BBC893;
     min-height: 250px;
     border-radius: 5px;
 }
@@ -481,7 +490,7 @@ html, body {
     text-decoration: none;
 }
 .welcome-block:hover {
-    background-color: #b6e4fc;
+    background-color: #8FA352;
 }
 
 
@@ -509,7 +518,7 @@ html, body {
     
 }
 .content-news-faq-block:hover {
-    background-color: #C2E0FF;
+    background-color: #BBC893;
 }
 .content-news-faq-block-inside {
     width: 100%;
@@ -532,8 +541,9 @@ html, body {
 	text-align: center;
 	height: auto;
 	width: 50%;
-	background-color: rgb(200, 197, 217);
-	box-shadow: 6px 8px 4px -3px rgb(80, 75, 107, 0.5);
+	background-color: #BBC893;
+	box-shadow: 6px 8px 4px -3px #49632C;
+    margin-bottom: 20px;
 }
 .registration_block_inside {
 	padding-top: 10px;
@@ -546,20 +556,41 @@ html, body {
 .form_register input {
 	width: 40%;
 }
-.regiter_button {
-	background-color: rgb(94, 88, 133);
-	color: white;
-	padding: 16px 20px;
-	margin: 8px 0;
-	border: none;
-	border-radius: 3px;
-	cursor: pointer;
-	width: 40%;
-	font-family: 'Source Sans Pro', sans-serif;
-	font-size: 15px;
+.register_button {
+    outline:0;
+    font-size:1em;
+    margin-bottom: 20px;
+    font-weight:600;
+    background:white;
+    border:none;
+    padding: 1em 2em;
+    transition:all .3s ease-out;
+    box-shadow:inset 0 -8px 0 0 rgba(0,0,0,.2),
+    1px 1px 0 0 #606C38,
+    2px 2px 0 0 #606C38,
+    3px 3px 0 0 #606C38,
+    4px 4px 0 0 #606C38,
+    5px 5px 0 0 #606C38,
+    6px 6px 0 0 #606C38,
+    7px 7px 0 0 #606C38,
+    8px 8px 0 0 #606C38,
+    9px 9px 0 0 #606C38,
+    10px 10px 0 0 #606C38,
+    11px 11px 0 0 #606C38,
+    12px 12px 0 0 #606C38;
 }
-.regiter_button:hover {
-	background-color: rgb(133, 126, 171);
+.register_button:hover{
+    color:#606C38;
+    cursor: pointer;
+}
+.register_button:active{
+    color:#222;
+    box-shadow:inset 0 -4px 0 0 rgba(0,0,0,.1),
+    1px 1px 0 0 #606C38,
+    2px 2px 0 0 #606C38,
+    3px 3px 0 0 #606C38,
+    4px 4px 0 0 #606C38,
+    5px 5px 0 0 #606C38;
 }
 .form_register input[type=text], input[type=password] {
   width: 40%;
@@ -568,8 +599,7 @@ html, body {
   display: inline-block;
   border: none;
   border-radius: 5px;
-  border-color: 
-  background: #f1f1f1;
+  background: #FEFAE0;
 }
 .form_register input[type=text]:focus, input[type=password]:focus {
   background-color: rgb(234, 233, 240);
@@ -584,7 +614,7 @@ html, body {
 	color: black;
 }
 .registration_block_inside a:hover {
-	color: rgb(133, 126, 171);
+	color: #49632C;
 }
 
 
@@ -593,21 +623,7 @@ html, body {
 .signin-content { 
     margin-top: 33px;
 }
-.signin_button {
-	background-color: rgb(94, 88, 133);
-	color: white;
-	padding: 16px 20px;
-	margin: 8px 0;
-	border: none;
-	border-radius: 3px;
-	cursor: pointer;
-	width: 40%;
-	font-family: 'Source Sans Pro', sans-serif;
-	font-size: 15px;
-}
-.signin_button:hover {
-	background-color: rgb(133, 126, 171);
-}
+
 .middle-block-signin {
 	width: 100%;
 	margin-top: 20px;
@@ -618,8 +634,9 @@ html, body {
 	text-align: center;
 	height: auto;
 	width: 50%;
-	background-color: rgb(200, 197, 217);
-	box-shadow: 6px 8px 4px -3px rgb(80, 75, 107, 0.5);
+	background-color: #BBC893;
+	box-shadow: 6px 8px 4px -3px #49632C;
+    margin-bottom: 20px;
 }
 .signin_block_inside {
 	padding-top: 10px;
@@ -633,19 +650,40 @@ html, body {
 	width: 40%;
 }
 .signin_button {
-	background-color: rgb(94, 88, 133);
-	color: white;
-	padding: 16px 20px;
-	margin: 8px 0;
-	border: none;
-	border-radius: 3px;
-	cursor: pointer;	
-	width: 40%;
-	font-family: 'Source Sans Pro', sans-serif;
-	font-size: 15px;
+    outline:0;
+    font-size:1em;
+    margin-bottom: 20px;
+    font-weight:600;
+    background:white;
+    border:none;
+    padding: 1em 2em;
+    transition:all .3s ease-out;
+    box-shadow:inset 0 -8px 0 0 rgba(0,0,0,.2),
+    1px 1px 0 0 #606C38,
+    2px 2px 0 0 #606C38,
+    3px 3px 0 0 #606C38,
+    4px 4px 0 0 #606C38,
+    5px 5px 0 0 #606C38,
+    6px 6px 0 0 #606C38,
+    7px 7px 0 0 #606C38,
+    8px 8px 0 0 #606C38,
+    9px 9px 0 0 #606C38,
+    10px 10px 0 0 #606C38,
+    11px 11px 0 0 #606C38,
+    12px 12px 0 0 #606C38;
 }
-.signin_button:hover {
-	background-color: rgb(133, 126, 171);
+.signin_button:hover{
+    color:#606C38;
+    cursor: pointer;
+}
+.signin_button:active{
+  color:#222;
+  box-shadow:inset 0 -4px 0 0 rgba(0,0,0,.1),
+    1px 1px 0 0 #606C38,
+    2px 2px 0 0 #606C38,
+    3px 3px 0 0 #606C38,
+    4px 4px 0 0 #606C38,
+    5px 5px 0 0 #606C38;
 }
 .form_signin input[type=text], input[type=password] {
   width: 40%;
@@ -654,8 +692,7 @@ html, body {
   display: inline-block;
   border: none;
   border-radius: 5px;
-  border-color: 
-  background: #f1f1f1;
+  background: #FEFAE0;
 }
 .form_signin input[type=text]:focus, input[type=password]:focus {
   background-color: rgb(234, 233, 240);
@@ -670,7 +707,7 @@ html, body {
 	color: black;
 }
 .signin_block_inside a:hover {
-	color: rgb(133, 126, 171);
+	color:  #49632C;
 }
 
 
@@ -707,14 +744,14 @@ html, body {
 .account-information-main {
     color: black;
     font-family: 'Roboto';
-    font-size: 1em;
+    font-size: 3.5vh;
     line-height: 23px;
     font-weight: 400;
 }
 .account-information-additional {
     color: black;
     font-family: 'Roboto';
-    font-size: 1em;
+    font-size: 2vh;
     line-height: 23px;
     font-weight: 300;
 }
@@ -727,9 +764,12 @@ html, body {
     text-decoration: none;
     color: black;
     font-family: 'Roboto';
-    font-size: 1em;
+    font-size: 2vh;
     line-height: 23px;
     font-weight: 400;
+}
+.account-settings a:hover {
+    text-decoration: underline;
 }
 .logout {
     margin-right: 50px;
@@ -749,7 +789,7 @@ html, body {
 .connected-accounts-content-inside {
     margin-top: 71px;
 }
-.connected-accounts -information {
+.connected-accounts-information {
     display: flex;
     flex-direction: column;
 }
@@ -757,7 +797,7 @@ html, body {
     width: 100%;
     margin-bottom: 33px;
 }
-.alredy-connected-accounts-header {
+.already-connected-accounts-header {
     color: black;
     font-family: 'Roboto';
     font-size: 1.5em;
@@ -781,7 +821,7 @@ html, body {
     line-height: 23px;
     font-weight: 500;
 }
-.connect-acconuts-suggetion-header {
+.connect-accounts-suggestion-header {
     margin-bottom: 42px;
     color: black;
     font-family: 'Roboto';
@@ -789,19 +829,19 @@ html, body {
     line-height: 23px;
     font-weight: 500;
 }
-.connect-accounts-suggetion-inside {
+.connect-accounts-suggestion-inside {
     display: flex;
     flex-direction: row;
 }
-.connect-accounts-suggetion-block {
+.connect-accounts-suggestion-block {
     display: flex;
     flex-direction: column;
     margin-right: 143px;
 }
-.connect-accounts-suggetion-block img {
+.connect-accounts-suggestion-block img {
     width: 10em;
 }
-.connect-accounts-suggetion-bloc-text {
+.connect-accounts-suggestion-bloc-text {
     width: 100%;
     text-align: center;
     color: black;
@@ -809,4 +849,43 @@ html, body {
     font-size: 1.5em;
     line-height: 23px;
     font-weight: 500;
+}
+
+/*FOOTER*/
+.footer {
+    height: 30em;
+    background-image: url("../../static/img/idea-background.png");
+    width: 100%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.footer-inside {
+    width: 80%;
+    margin: auto;
+}
+.contacts {
+    padding-top: 10px;
+    color: black;
+    font-family: 'Roboto';
+    line-height: 12px;
+    font-weight: 300;
+}
+.contacts-p {
+    color: black;
+    font-family: 'Roboto';
+    font-size: 2vw;
+    line-height: 3vw;
+    font-weight: 500;
+}
+.contacts-github {
+    font-size: 1.5vw;
+    line-height: 2vw;
+}
+.contacts-gmail {
+    font-size: 1.5vw;
+    line-height: 2vw;
+}
+.contacts-ig {
+    font-size: 1.5vw;
+    line-height: 2vw;
 }
