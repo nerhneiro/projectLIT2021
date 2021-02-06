@@ -1,0 +1,181 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+ {%  block title %} Playlist {%  endblock %}
+{% block js %} <script type="text/javascript" src="{% static 'js/script.js' %}"></script> {% endblock %}
+{%  block menu %}
+<div class="menu">
+       <div class="menu-elements">
+        <ul class="menu-list">
+            <li class="menu-element"><a class="menu-element-href" href="{% url 'main' %}">News</a></li>
+            <li class="menu-element"><a class="menu-element-pressed" href="{% url 'playlists' %}">Playlists</a></li>
+            <li class="menu-element"><a class="menu-element-href" href="{% url 'accounts' %}">Connected accounts</a></li>
+            <li class="menu-element"><a href="#" class="menu-element-href">Settings</a></li>
+            <li class="log-out-element"><a class="menu-element-href" href="{% url 'register' %}">Log out</a></li>
+            <li class="menu-element-name"><a href="{% url 'account' %}">IRENE</a></li>
+            <li class="photo-element"><a href="{% url 'account' %}" ><img src="{% static 'img/gramophone.png' %}" alt="photo"></a></li>
+        </ul>
+    </div>
+    </div>
+{% endblock %}
+{% block content %}
+    <div class="content-playlist">
+       <div class="content-playlist-inside">
+        <div class="playlist-header">
+            <div class="playlist-picture"><img src="{% static 'img/playlist-image.png' %}" alt="playlist"></div>
+            <div class="playlist-info">
+                <p class="playlist-info-name">Рождественские песни</p>
+                <div class="genres-text">
+                <p class="playlist-info-time">3 часа 18 минут</p>
+                <p  class="playlist-info-genres">джаз, фолк, классика, рок-н-ролл, блюз, поп</p>
+                <p class="playlist-add-genres"><a id="href-info" class="playlist-info-href-additional" href="javascript:get_additional_information()">и еще 5 других</a></p>
+                <br>
+                <p id="info" class="playlist-info-genres-additional"> <br> кантри, соул, американа, альтернатива, инди-рок</p>
+                </div>
+            </div> 
+        </div>
+    </div>
+    <div class="playlist-songs">
+        <div class="playlist-song">
+            <div class="playlist-song-inside">
+               <div class="song">
+               <div class="song-inside">
+                   <a onclick="manager(event)" class="play-stop" href="#"><img class="play-stop-change-color" id="play-stop-icon" src="{% static 'img/play.svg' %}" alt=""></a>
+               <div class="song-info">
+               <p class="song-name">Last Christmas</p>
+               <a href="" class="song-writer">Wham!</a>
+               </div>
+               <div class="song-settings">
+                   <a href="" class="add-to-favourite-heart"><div class="add-to-favourites"><img class="add-to-favourites" src="{% static 'img/heart.svg' %}" alt=""></div></a>
+               <div class="song-time">4:26</div>
+               <div class="points">
+                  <a href="#" onclick="manager(event)" class="song-points" id = "song-points-press">・・・<div id='song-window-2' class="song-window">
+                       <div class="share-your-song">Share</div>
+                       <div class="add-to-queue-your-song">Add to queue</div>
+                      </div></a>
+               </div>
+               </div>
+               </div>
+               </div>
+                <div class="song">
+               <div class="song-inside">
+                   <a onclick="manager(event)" class="play-stop" href="#"><img class="play-stop-change-color" id="play-stop-icon" src="{% static 'img/play.svg' %}" alt=""></a>
+               <div class="song-info">
+               <p class="song-name">Last Christmas</p>
+               <a href="" class="song-writer">Wham!</a>
+               </div>
+               <div class="song-settings">
+                   <a href="" class="add-to-favourite-heart"><div class="add-to-favourites"><img class="add-to-favourites" src="{% static 'img/heart.svg' %}" alt=""></div></a>
+               <div class="song-time">4:26</div>
+               <div class="points">
+                  <a href="#" onclick="manager(event)" class="song-points" id = "song-points-press">・・・<div id='song-window-2' class="song-window">
+                       <div class="share-your-song">Share</div>
+                       <div class="add-to-queue-your-song">Add to queue</div>
+                      </div></a>
+               </div>
+               </div>
+               </div>
+               </div>
+                <div class="song">
+               <div class="song-inside">
+                   <a onclick="manager(event)" class="play-stop" href="#"><img class="play-stop-change-color" id="play-stop-icon" src="{% static 'img/play.svg' %}" alt=""></a>
+               <div class="song-info">
+               <p class="song-name">Last Christmas</p>
+               <a href="" class="song-writer">Wham!</a>
+               </div>
+               <div class="song-settings">
+                   <a href="" class="add-to-favourite-heart"><div class="add-to-favourites"><img class="add-to-favourites" src="{% static 'img/heart.svg' %}" alt=""></div></a>
+               <div class="song-time">4:26</div>
+               <div class="points">
+                  <a href="#" onclick="manager(event)" class="song-points" id = "song-points-press">・・・<div id='song-window-2' class="song-window">
+                       <div class="share-your-song">Share</div>
+                       <div class="add-to-queue-your-song">Add to queue</div>
+                      </div></a>
+               </div>
+               </div>
+               </div>
+               </div>
+                <div class="song">
+               <div class="song-inside">
+                   <a onclick="manager(event)" class="play-stop" href="#"><img class="play-stop-change-color" id="play-stop-icon" src="{% static 'img/play.svg' %}" alt=""></a>
+               <div class="song-info">
+               <p class="song-name">Last Christmas</p>
+               <a href="" class="song-writer">Wham!</a>
+               </div>
+               <div class="song-settings">
+                   <a href="" class="add-to-favourite-heart"><div class="add-to-favourites"><img class="add-to-favourites" src="{% static 'img/heart.svg' %}" alt=""></div></a>
+               <div class="song-time">4:26</div>
+               <div class="points">
+                  <a href="#" onclick="manager(event)" class="song-points" id = "song-points-press">・・・<div id='song-window-2' class="song-window">
+                       <div class="share-your-song">Share</div>
+                       <div class="add-to-queue-your-song">Add to queue</div>
+                      </div></a>
+               </div>
+               </div>
+               </div>
+               </div>
+                <div class="song">
+               <div class="song-inside">
+                   <a onclick="manager(event)" class="play-stop" href="#"><img class="play-stop-change-color" id="play-stop-icon" src="{% static 'img/play.svg' %}" alt=""></a>
+               <div class="song-info">
+               <p class="song-name">Last Christmas</p>
+               <a href="" class="song-writer">Wham!</a>
+               </div>
+               <div class="song-settings">
+                   <a href="" class="add-to-favourite-heart"><div class="add-to-favourites"><img class="add-to-favourites" src="{% static 'img/heart.svg' %}" alt=""></div></a>
+               <div class="song-time">4:26</div>
+               <div class="points">
+                  <a href="#" onclick="manager(event)" class="song-points" id = "song-points-press">・・・<div id='song-window-2' class="song-window">
+                       <div class="share-your-song">Share</div>
+                       <div class="add-to-queue-your-song">Add to queue</div>
+                      </div></a>
+               </div>
+               </div>
+               </div>
+               </div>
+                <div class="song">
+               <div class="song-inside">
+                   <a onclick="manager(event)" class="play-stop" href="#"><img class="play-stop-change-color" id="play-stop-icon" src="{% static 'img/play.svg' %}" alt=""></a>
+               <div class="song-info">
+               <p class="song-name">Last Christmas</p>
+               <a href="" class="song-writer">Wham!</a>
+               </div>
+               <div class="song-settings">
+                   <a href="" class="add-to-favourite-heart"><div class="add-to-favourites"><img class="add-to-favourites" src="{% static 'img/heart.svg' %}" alt=""></div></a>
+               <div class="song-time">4:26</div>
+               <div class="points">
+                  <a href="#" onclick="manager(event)" class="song-points" id = "song-points-press">・・・<div id='song-window-2' class="song-window">
+                       <div class="share-your-song">Share</div>
+                       <div class="add-to-queue-your-song">Add to queue</div>
+                      </div></a>
+               </div>
+               </div>
+               </div>
+               </div>
+                <div class="song">
+               <div class="song-inside">
+                   <a onclick="manager(event)" class="play-stop" href="#"><img class="play-stop-change-color" id="play-stop-icon" src="{% static 'img/play.svg' %}" alt=""></a>
+               <div class="song-info">
+               <p class="song-name">Last Christmas</p>
+               <a href="" class="song-writer">Wham!</a>
+               </div>
+               <div class="song-settings">
+                   <a href="" class="add-to-favourite-heart"><div class="add-to-favourites"><img class="add-to-favourites" src="{% static 'img/heart.svg' %}" alt=""></div></a>
+               <div class="song-time">4:26</div>
+               <div class="points">
+                  <a href="#" onclick="manager(event)" class="song-points" id = "song-points-press">・・・<div id='song-window-2' class="song-window">
+                       <div class="share-your-song">Share</div>
+                       <div class="add-to-queue-your-song">Add to queue</div>
+                      </div></a>
+               </div>
+               </div>
+               </div>
+               </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+{% endblock %}
+
+{% block footer %}
+{%  endblock %}

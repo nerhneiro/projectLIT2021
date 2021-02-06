@@ -1,0 +1,78 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block title %} Main {% endblock %}
+{%  block menu %}
+    <div class="menu">
+       <div class="menu-elements">
+        <ul class="menu-list">
+            <li class="menu-element"><a class="menu-element-pressed" href="{% url 'main' %}">News</a></li>
+            <li class="menu-element"><a class="menu-element-href" href="{% url 'playlists' %}">Playlists</a></li>
+            <li class="menu-element"><a class="menu-element-href" href="{% url 'accounts' %}">Connected accounts</a></li>
+            <li class="menu-element"><a href="#" class="menu-element-href">Settings</a></li>
+            <li class="log-out-element"><a class="menu-element-href" href="{% url 'register' %}">Log out</a></li>
+            <li class="menu-element-name"><a href="{% url 'account' %}">IRENE</a></li>
+            <li class="photo-element"><a href="{% url 'account' %}" ><img src="{% static 'img/gramophone.png' %}" alt="photo"></a></li>
+        </ul>
+    </div>
+    </div>
+{%  endblock %}
+{%  block content %}
+    <div class="content-news-beginning">
+    <div class="content-news-beginning-inside">
+        <p class="content-news-beginning-header">Ready to understand your favourite artists better?</p>
+        <a href="{% url 'register' %}"><button class="content-news-beginning-button-register">Create an account</button></a>
+        <a href="{% url 'signin' %}"><button class="content-news-beginning-button-login">Log in</button></a>
+    </div>
+    </div>
+    <div class="content-news">
+    <div class="content-news-header">
+     <a class="welcome-block-href" href="">
+      <div class="welcome-block">
+         <div class="welcome-block-content">
+          <p class="welcome-block-header">Welcome home! Ready to listen to new tracks?</p>
+          </div>
+      </div>
+      </a>
+
+      <div class="content-news-faq">
+          <p class="content-news-faq-header">Frequently Asked Questions</p>
+          <div class="content-news-faq-blocks">
+             <a href="" class="content-news-faq-block-href">
+              <div class="content-news-faq-block">
+                <div class="content-news-faq-block-inside">
+                 <p class="content-news-faq-block-header">#1: How can I connect my accounts?</p>
+              </div>
+              </div>
+              </a>
+              <a href="" class="content-news-faq-block-href">
+              <div class="content-news-faq-block">
+                <div class="content-news-faq-block-inside">
+                 <p class="content-news-faq-block-header">#2: How can I share tags with friends?</p>
+              </div>
+              </div>
+              </a>
+              <a href="" class="content-news-faq-block-href">
+              <div class="content-news-faq-block">
+                <div class="content-news-faq-block-inside">
+                 <p class="content-news-faq-block-header">#3: Registration problems</p>
+              </div>
+              </div>
+              </a>
+          </div>
+      </div>
+
+      </div>
+    </div>
+{%  endblock %}
+{%  block footer %}
+    <div class="footer">
+    <div class="footer-inside">
+    <div class="contacts">
+        <p class="contacts-p">If you have any suggestions:</p>
+        <p class="contacts-gmail">nerhneiro@gmail.com</p>
+        <p class="contacts-github">Github: nerhneiro</p>
+        <p class="contacts-ig">Instagram: @nerhneiro</p>
+    </div>
+    </div>
+    </div>
+{% endblock %}
