@@ -20,9 +20,9 @@ class Album(models.Model):
     idDiscogsSecondary = models.PositiveIntegerField(verbose_name="DiscogsSecondaryID")
     name = models.CharField(verbose_name="Album's name", max_length=128)
     image = models.ImageField(upload_to='Cover image', blank=True)
-    # artist = models.ForeignKey(Artist, verbose_name="Artist", null=True, on_delete=models.CASCADE)
+    artist = models.ForeignKey(Artist, verbose_name="Artist", null=True, on_delete=models.CASCADE)
     # tags = models.ManyToManyField(Tag, null=True)
-    # labels = models.ManyToManyField(Label, null=True)
+    labels = models.ManyToManyField(Label, blank=True)
 #     #image field
 #     #from spotify/yandex check
 
