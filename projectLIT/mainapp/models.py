@@ -21,8 +21,10 @@ class Album(models.Model):
     name = models.CharField(verbose_name="Album's name", max_length=128)
     image = models.ImageField(upload_to='Cover image', blank=True)
     artist = models.ForeignKey(Artist, verbose_name="Artist", null=True, on_delete=models.CASCADE)
-    # tags = models.ManyToManyField(Tag, null=True)
-    labels = models.ManyToManyField(Label, blank=True)
+    #tags = models.ManyToManyField(Tag, blank=True)
+    tags = models.ForeignKey(Tag, verbose_name="Tags", null=True, on_delete=models.CASCADE)
+    #labels = models.ManyToManyField(Label, blank=True)
+    labels = models.ForeignKey(Label, verbose_name="Labels", null=True, on_delete=models.CASCADE)
 #     #image field
 #     #from spotify/yandex check
 
