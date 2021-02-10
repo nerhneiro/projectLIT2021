@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.postgres.fields import ArrayField
 # Create your models here.
 
 class Tag(models.Model):
@@ -22,9 +22,17 @@ class Album(models.Model):
     image = models.ImageField(upload_to='Cover image', blank=True)
     artist = models.ForeignKey(Artist, verbose_name="Artist", null=True, on_delete=models.CASCADE)
     #tags = models.ManyToManyField(Tag, blank=True)
-    tags = models.ForeignKey(Tag, verbose_name="Tags", null=True, on_delete=models.CASCADE)
+    #tags = models.ForeignKey(Tag, verbose_name="Tags", null=True, on_delete=models.CASCADE)
     #labels = models.ManyToManyField(Label, blank=True)
-    labels = models.ForeignKey(Label, verbose_name="Labels", null=True, on_delete=models.CASCADE)
+    #labelsChoices = Label.objects.all()
+    # labelsChoices = []
+    # for i in Label.objects.all():
+    #     labelsChoices.append(i.name)
+    # labelsChoices = tuple(labelsChoices)
+    #tags = ArrayField(models.ForeignKey(Tag), null=True, on_delete=models.CASCADE)
+    tags = models.ManyToManyField(Tag, related_name="tagged_albums")
+    labels = models.ManyToManyField(Tag, related_name="labeled_albums")
+    #labels = models.ForeignKey(Label, verbose_name="Labels", null=True, on_delete=models.CASCADE)
 #     #image field
 #     #from spotify/yandex check
 
