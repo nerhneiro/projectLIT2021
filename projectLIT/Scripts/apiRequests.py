@@ -20,9 +20,11 @@ for i in album_arr:
     album += i.capitalize()
     album += ' '
 album = album[:-1]
-artists = album_info[0]['artists']
-artist = str(artists[0]['name'])
-print('Artist: ', artist)
+artistsAll = album_info[0]['artists']
+artists = []
+for i in artistsAll:
+    artists.append(i["name"])
+print('Artist(s): ', ', '.join(artists))
 print('Album: ', album)
 # for artist in artists:
 #     print('Artist: ', artist['name']) //если артистов несколько
@@ -36,35 +38,51 @@ headers = {
     'From': 'nerhneiro@gmail.com'
 }
 d = discogs.Client('musicSort/0.1', user_token=secret.user_token)
-response = requests.get(f"https://api.discogs.com/database/search?q={artist}&key={secret.consumer_key}&secret={secret.consumer_secret}", headers=headers).content
-response = str(response)
-releases = d.search(album, artist=artist, type='release')
+# response = requests.get(f"https://api.discogs.com/database/search?q={artists[0]}&key={secret.consumer_key}&secret={secret.consumer_secret}", headers=headers).content
+# response = str(response)
+
 genres = []
 styles = []
 year = 0
 labels = set([])
-for i in releases:
-    title = i.title.split("- ")[1]
-    while title[0] == ' ':
-        title = title[1:]
-    while title[-1] == ' ':
-        title = title[:-1]
-    # print(i.title)
-    # print(title, len(title), title.count(' '))
-    # print(album, len(album), album.count(' '))
-    if title == album:
-        genres = i.genres
-        styles = i.styles
-        year = i.year
-        labels = i.labels
-        labels = i.data["label"]
-        #print(i.data)
-        print("Year: ", year)
-        print("Genres: ", ', '.join(genres))
-        print("Styles: ", ', '.join(styles))
-        print("Labels: ", ', '.join(labels))
-        break
 
+searching = True
+for artist in artists:
+    if searching == True:
+        releases = d.search(album, artist=artist, type='release')
+        for i in releases:
+            title = i.title.split("- ")[1]
+            while title[0] == ' ':
+                title = title[1:]
+            while title[-1] == ' ':
+                title = title[:-1]
+            # print(i.title)
+            # print(title.upper(), len(title), title.count(' '))
+            # print(album.upper(), len(album), album.count(' '))
+            if title.upper() == album.upper():
+                genres = i.genres
+                styles = i.styles
+                year = i.year
+                labels = i.labels
+                labels = i.data["label"]
+                #print(i.data)
+                print("Year: ", year)
+                try:
+                    print("Genres: ", ', '.join(genres))
+                except:
+                    print("Genres: No information")
+                try:
+                    print("Styles: ", ', '.join(styles))
+                except:
+                    print("Styles: No information")
+                try:
+                    print("Labels: ", ', '.join(labels))
+                except:
+                    print("Labels: No information")
+                searching = False
+                break
+    else:
+        break
 
 
 
