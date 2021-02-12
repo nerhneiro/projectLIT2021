@@ -20,53 +20,60 @@
     <div class="content">
 
         <div class="playlists">
+
             <div class="playlists-inside">
-               <a class="playlist-href" href="/playlist/">
+                {%  for album in albums %}
+                    <a class="playlist-href" href="/playlist/">
                 <div class="playlist">
                     <div class="playlist-inside">
-                        <p class="playlist-name">Рождественская музыка</p>
-                        <p class="playlist-time">3 часа 18 минут</p>
-                        <p class="playlist-genres">джаз, фолк, класика и др.</p>
+                        <p class="playlist-name">{{ album.name }}</p>
+                        <p class="playlist-time">{{ album.artist.name }}</p>
+                        {% for tag in album.tags.all %}
+                        <p class="playlist-genres">{{ tag.name }}</p>
+                        {% endfor %}
                     </div>
                 </div>
                 </a>
-                <a class="playlist-href" href="#">
-                <div class="playlist">
-                    <div class="playlist-inside">
-                        <p class="playlist-name">Рождественская музыка</p>
-                        <p class="playlist-time">3 часа 18 минут</p>
-                        <p class="playlist-genres">джаз, фолк, класика и др.</p>
-                    </div>
-                </div>
-                </a>
-                <a class="playlist-href" href="#">
-                <div class="playlist">
-                    <div class="playlist-inside">
-                        <p class="playlist-name">Рождественская музыка</p>
-                        <p class="playlist-time">3 часа 18 минут</p>
-                        <p class="playlist-genres">джаз, фолк, класика и др.</p>
-                    </div>
-                </div>
-                </a>
-                <a class="playlist-href" href="#">
-                <div class="playlist">
-                    <div class="playlist-inside">
-                        <p class="playlist-name">Рождественская музыка</p>
-                        <p class="playlist-time">3 часа 18 минут</p>
-                        <p class="playlist-genres">джаз, фолк, класика и др.</p>
-                    </div>
-                </div>
-                </a>
-                <a class="playlist-href" href="#">
-                <div class="playlist">
-                    <div class="playlist-inside">
-                        <p class="playlist-name">Рождественская музыка</p>
-                        <p class="playlist-time">3 часа 18 минут</p>
-                        <p class="playlist-genres">джаз, фолк, класика и др.</p>
-                    </div>
-                </div>
-                </a>
+                {%  endfor %}
+
+{#                <a class="playlist-href" href="#">#}
+{#                <div class="playlist">#}
+{#                    <div class="playlist-inside">#}
+{#                        <p class="playlist-name">Рождественская музыка</p>#}
+{#                        <p class="playlist-time">3 часа 18 минут</p>#}
+{#                        <p class="playlist-genres">джаз, фолк, класика и др.</p>#}
+{#                    </div>#}
+{#                </div>#}
+{#                </a>#}
+{#                <a class="playlist-href" href="#">#}
+{#                <div class="playlist">#}
+{#                    <div class="playlist-inside">#}
+{#                        <p class="playlist-name">Рождественская музыка</p>#}
+{#                        <p class="playlist-time">3 часа 18 минут</p>#}
+{#                        <p class="playlist-genres">джаз, фолк, класика и др.</p>#}
+{#                    </div>#}
+{#                </div>#}
+{#                </a>#}
+{#                <a class="playlist-href" href="#">#}
+{#                <div class="playlist">#}
+{#                    <div class="playlist-inside">#}
+{#                        <p class="playlist-name">Рождественская музыка</p>#}
+{#                        <p class="playlist-time">3 часа 18 минут</p>#}
+{#                        <p class="playlist-genres">джаз, фолк, класика и др.</p>#}
+{#                    </div>#}
+{#                </div>#}
+{#                </a>#}
+{#                <a class="playlist-href" href="#">#}
+{#                <div class="playlist">#}
+{#                    <div class="playlist-inside">#}
+{#                        <p class="playlist-name">Рождественская музыка</p>#}
+{#                        <p class="playlist-time">3 часа 18 минут</p>#}
+{#                        <p class="playlist-genres">джаз, фолк, класика и др.</p>#}
+{#                    </div>#}
+{#                </div>#}
+{#                </a>#}
             </div>
+
         </div>
     </div>
 {% endblock %}

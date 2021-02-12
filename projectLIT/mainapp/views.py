@@ -1,10 +1,13 @@
 from django.shortcuts import render
-
+from .models import Album, Artist, Label, Tag
 # Create your views here.
 def main(request):
+    albums = Album.objects.all()
     context = {
-        'title' : 'Main'
+        'title': 'Main',
+        'albums': albums
     }
+
     return render(request, 'mainapp/index.html', context)
 
 
@@ -16,8 +19,10 @@ def connected(request):
 
 
 def playlists(request):
+    albums = Album.objects.all()
     context = {
-        'title': 'Playlists'
+        'title': 'Playlists',
+        'albums': albums
     }
     return render(request, 'mainapp/playlists.html', context)
 

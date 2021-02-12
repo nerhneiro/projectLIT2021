@@ -6,7 +6,7 @@ class Tag(models.Model):
     name = models.CharField(verbose_name="Tag's name", max_length=128)
 
 class Artist(models.Model):
-    idDiscogs =  models.PositiveIntegerField(verbose_name="DiscogsID артиста")
+    idDiscogs = models.PositiveIntegerField(verbose_name="DiscogsID артиста")
     name = models.CharField(verbose_name="Artist's name", max_length=128)
 
 class Label(models.Model):
@@ -31,8 +31,9 @@ class Album(models.Model):
     # labelsChoices = tuple(labelsChoices)
     #tags = ArrayField(models.ForeignKey(Tag), null=True, on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tag, related_name="tagged_albums")
-    labels = models.ManyToManyField(Tag, related_name="labeled_albums")
+    #labels = models.ManyToManyField(Tag, related_name="labeled_albums")
     #labels = models.ForeignKey(Label, verbose_name="Labels", null=True, on_delete=models.CASCADE)
+    #жанры, стили, год
 #     #image field
 #     #from spotify/yandex check
 
