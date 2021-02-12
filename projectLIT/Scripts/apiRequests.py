@@ -48,14 +48,16 @@ labels = set([])
 
 searching = True
 for artist in artists:
-    if searching == True:
+    if searching:
         releases = d.search(album, artist=artist, type='release')
+        # print("artist ", artist)
         for i in releases:
             title = i.title.split("- ")[1]
             while title[0] == ' ':
                 title = title[1:]
             while title[-1] == ' ':
                 title = title[:-1]
+            #можно просто брать первый найденный релиз!
             # print(i.title)
             # print(title.upper(), len(title), title.count(' '))
             # print(album.upper(), len(album), album.count(' '))
@@ -63,7 +65,7 @@ for artist in artists:
                 genres = i.genres
                 styles = i.styles
                 year = i.year
-                labels = i.labels
+                #labels = i.labels
                 labels = i.data["label"]
                 #print(i.data)
                 print("Year: ", year)
