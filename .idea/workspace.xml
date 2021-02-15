@@ -20,13 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8fafe169-4177-4859-a71d-fbc6585cb8e3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/projectLIT/mainapp/management/commands/fill_db.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectLIT/Scripts/apiRequests.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/scripts/apiRequests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectLIT/authapp/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectLIT/authapp/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectLIT/authapp/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectLIT/authapp/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectLIT/authapp/migrations/0002_delete_siteuser.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectLIT/authapp/migrations/0003_siteuser.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectLIT/authapp/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectLIT/authapp/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectLIT/authapp/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectLIT/authapp/views.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/projectLIT/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectLIT/mainapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/mainapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectLIT/mainapp/templates/mainapp/playlists.html" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/mainapp/templates/mainapp/playlists.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projectLIT/projectLIT/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/projectLIT/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -130,7 +135,9 @@
       <workItem from="1612855177138" duration="140000" />
       <workItem from="1612857862399" duration="36000" />
       <workItem from="1612858352513" duration="11125000" />
-      <workItem from="1613242643463" duration="1210000" />
+      <workItem from="1613242643463" duration="2769000" />
+      <workItem from="1613402358421" duration="54000" />
+      <workItem from="1613402453392" duration="682000" />
     </task>
     <servers />
   </component>
@@ -155,6 +162,10 @@
     </state>
     <state x="360" y="222" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1611237167558" />
     <state x="360" y="230" width="1071" height="810" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1792.1042@0.23.1792.1042" timestamp="1613242839224" />
+    <state x="584" y="303" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1613402380310">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="584" y="303" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1613402380310" />
     <state x="397" y="218" key="SettingsEditor" timestamp="1613053225887">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
