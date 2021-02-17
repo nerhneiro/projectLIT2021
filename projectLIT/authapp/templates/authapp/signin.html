@@ -1,0 +1,43 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block title %} Sign in {% endblock %}
+{% block menu %}
+{#    <div class="menu">#}
+{#       <div class="menu-elements">#}
+{#        <ul class="menu-list">#}
+{#            <li class="menu-element"><a class="menu-element-href" href="{% url 'main' %}">News</a></li>#}
+{#            <li class="menu-element"><a class="menu-element-href" href="{% url 'playlists' %}">Playlists</a></li>#}
+{#            <li class="menu-element"><a class="menu-element-href" href="{% url 'accounts' %}">Connected accounts</a></li>#}
+{#            <li class="menu-element"><a href="#" class="menu-element-href">Settings</a></li>#}
+{#            <li class="log-out-element"><a class="menu-element-pressed" href="{% url 'register' %}">Log out</a></li>#}
+{#            <li class="menu-element-name"><a href="{% url 'account' %}">IRENE</a></li>#}
+{#            <li class="photo-element"><a href="{% url 'account' %}" ><img src="{% static 'img/gramophone.png' %}" alt="photo"></a></li>#}
+{#        </ul>#}
+{#    </div>#}
+{#    </div>#}
+{% endblock %}
+{% block content %}
+    <div class="signin-content">
+ <div class="middle-block-signin">
+  <div class="signin_block">
+    <div class="signin_block_inside">
+    <h1>Sign in</h1>
+
+    <form class="form_signin" action="{% url 'auth:login' %}" method="post" >
+        {% csrf_token %}
+        {{ login_form.as_p }}
+{#    <label for="lname">Nickname/Email:</label><br>#}
+{#    <input type="text" name="lname" value=""><br>#}
+{#    <label for="lname">Password:</label><br>#}
+{#    <input type="password" name="lname" value=""><br>#}
+    <input class="signin_button" type="submit" value="Sign in">
+  </form>
+{#  <a href="{% url 'register' %}">#}
+{#    <p>Don't have an account?</p>#}
+{#    <p>Register</p>#}
+{#  </a>#}
+  </div>
+  </div>
+ </div>
+  </div>
+{% endblock %}
