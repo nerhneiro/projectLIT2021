@@ -30,5 +30,6 @@ urlpatterns = [
     path('account/', mainapp.account, name='account'),
     path('register/', mainapp.register, name='register'),
     path('signin/', mainapp.signin, name='signin'),
+    path('auth/', include('authapp.urls', namespace='auth')),
     #path('auth/', include('authapp.urls', namespace='auth'))
 ]
