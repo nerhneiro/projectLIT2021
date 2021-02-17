@@ -20,12 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8fafe169-4177-4859-a71d-fbc6585cb8e3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/projectLIT/authapp/templates/authapp/signin.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectLIT/authapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/authapp/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectLIT/authapp/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/authapp/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectLIT/authapp/migrations/0002_auto_20210217_1705.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectLIT/authapp/migrations/0003_auto_20210217_1721.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectLIT/authapp/migrations/0004_auto_20210217_1722.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/projectLIT/authapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/authapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectLIT/authapp/templates/authapp/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/authapp/templates/authapp/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectLIT/authapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/authapp/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projectLIT/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -144,7 +144,7 @@
       <workItem from="1613242643463" duration="2769000" />
       <workItem from="1613402358421" duration="54000" />
       <workItem from="1613402453392" duration="1719000" />
-      <workItem from="1613480371214" duration="6869000" />
+      <workItem from="1613480371214" duration="7377000" />
     </task>
     <servers />
   </component>
