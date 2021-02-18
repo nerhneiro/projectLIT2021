@@ -1,27 +1,27 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserChangeForm, UserCreationForm
 
-from .models import ShopUser
+from .models import SiteUser
 
 
-class ShopUserLoginForm(AuthenticationForm):
+class SiteUserLoginForm(AuthenticationForm):
     class Meta:
-        model = ShopUser
+        model = SiteUser
         fields = ('username', 'password')
 
     def __init__(self, *args, **kwargs):
-        super(ShopUserLoginForm, self).__init__(*args, **kwargs)
+        super(SiteUserLoginForm, self).__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control'
 
 
-class ShopUserRegisterForm(UserCreationForm):
+class SiteUserRegisterForm(UserCreationForm):
     class Meta:
-        model = ShopUser
-        fields = ('username', 'first_name', 'password1', 'password2', 'email', 'age', 'avatar')
+        model = SiteUser
+        fields = ('username', 'first_name', 'password1', 'password2', 'email', 'age')
 
     def __init__(self, *args, **kwargs):
-        super(ShopUserRegisterForm, self).__init__(*args, **kwargs)
+        super(SiteUserRegisterForm, self).__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control'
             field.help_text = ''
@@ -34,13 +34,13 @@ class ShopUserRegisterForm(UserCreationForm):
     #     return data
 
 
-class ShopUserEditForm(UserChangeForm):
+class SiteUserEditForm(UserChangeForm):
     class Meta:
-        model = ShopUser
-        fields = ('username', 'first_name', 'email', 'age', 'avatar')
+        model = SiteUser
+        fields = ('username', 'first_name', 'email', 'age')
 
     def __init__(self, *args, **kwargs):
-        super(ShopUserEditForm, self).__init__(*args, **kwargs)
+        super(SiteUserEditForm, self).__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control'
             field.help_text = ''

@@ -1,14 +1,14 @@
 from django.shortcuts import render, HttpResponseRedirect
-from authapp.forms import ShopUserLoginForm, ShopUserRegisterForm
+from authapp.forms import SiteUserLoginForm, SiteUserRegisterForm
 from django.contrib import auth
 from django.urls import reverse
 
-from authapp.forms import ShopUserEditForm
+from authapp.forms import SiteUserEditForm
 
 def login(request):
     title = 'вход'
-    
-    login_form = ShopUserLoginForm(data=request.POST or None)  
+    user = None
+    login_form = SiteUserLoginForm(data=request.POST or None)
     if request.method == 'POST' and login_form.is_valid():
         username = request.POST['username']
         password = request.POST['password']
@@ -18,7 +18,7 @@ def login(request):
             auth.login(request, user)
             return HttpResponseRedirect(reverse('main'))
 
-    content = {'title': title, 'login_form': login_form}
+    content = {'title': title, 'login_form': login_form, 'user': user}
     return render(request, 'authapp/signin.html', content)
 
 
@@ -31,13 +31,13 @@ def register(request):
     title = 'регистрация'
     
     if request.method == 'POST':
-        register_form = ShopUserRegisterForm(request.POST, request.FILES)
+        register_form = SiteUserRegisterForm(request.POST, request.FILES)
     
         if register_form.is_valid():
             register_form.save()
             return HttpResponseRedirect(reverse('auth:login'))
     else:
-        register_form = ShopUserRegisterForm()
+        register_form = SiteUserRegisterForm()
     
     content = {'title': title, 'register_form': register_form}
     
@@ -48,12 +48,12 @@ def edit(request):
     title = 'редактирование'
     
     if request.method == 'POST':
-        edit_form = ShopUserEditForm(request.POST, request.FILES, instance=request.user)
+        edit_form = SiteUserEditForm(request.POST, request.FILES, instance=request.user)
         if edit_form.is_valid():
             edit_form.save()
             return HttpResponseRedirect(reverse('auth:edit'))
     else:
-        edit_form = ShopUserEditForm(instance=request.user)
+        edit_form = SiteUserEditForm(instance=request.user)
     
     content = {'title': title, 'edit_form': edit_form}
     

@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'authapp',
 ]
 
-AUTH_USER_MODEL = 'authapp.ShopUser'
+AUTH_USER_MODEL = 'authapp.SiteUser'
 
 
 MIDDLEWARE = [
