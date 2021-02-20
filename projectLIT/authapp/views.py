@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponseRedirect
 from authapp.forms import SiteUserLoginForm, SiteUserRegisterForm
 from django.contrib import auth
 from django.urls import reverse
-
+from mainapp.models import Album
 from authapp.forms import SiteUserEditForm
 
 def login(request):
@@ -16,6 +16,7 @@ def login(request):
         user = auth.authenticate(username=username, password=password)
         if user and user.is_active:
             auth.login(request, user)
+            user.albums.objects.add(Album(name='Album1111', ))
             return HttpResponseRedirect(reverse('main'))
 
     content = {'title': title, 'login_form': login_form, 'user': user}
