@@ -4,6 +4,10 @@ from mainapp.models import Album, Label, Tag, Artist
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
+        Album.objects.all().delete()
+        Tag.objects.all().delete()
+        Label.objects.all().delete()
+        Artist.objects.all().delete()
         tag1 = Tag(name='Excellent')
         tag1.save()
         tag2 = Tag(name='Good')
@@ -25,7 +29,14 @@ class Command(BaseCommand):
         album1 = Album(idYandex=1, idDiscogs=1, idDiscogsSecondary=1, name='Album1', artist=artist1)
         album1.save()
         album1.tags.add(tag1)
+        album1.tags.add(tag2)
+        album1.labels.add(label1)
         album1.save()
+        album2 = Album(idYandex=2, idDiscogs=2, idDiscogsSecondary=2, name='Album2', artist=artist2)
+        album2.save()
+        album2.tags.add(tag1)
+        album2.labels.add(label1)
+        album2.labels.add(label2)
         print(Tag.objects.all())
         print(Label.objects.all())
         print(Artist.objects.all())
