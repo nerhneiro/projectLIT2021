@@ -18,9 +18,8 @@ def connected(request):
     return render(request, 'mainapp/connectedaccounts.html', context)
 
 
-def playlists(request, pk=None):
+def playlists(request):
     albums = Album.objects.all()
-    print(pk)
     context = {
         'title': 'Playlists',
         'albums': albums

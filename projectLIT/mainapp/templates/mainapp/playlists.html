@@ -28,8 +28,8 @@
                     <div class="playlist-inside">
                         <p class="playlist-name">{{ album.name }}</p>
                         <p class="playlist-time">{{ album.artist.name }}</p>
-                        {% for label in album.labels.all %}
-                        <p class="playlist-genres">{{ label.name }}</p>
+                        {% for tag in album.tags.all %}
+                        <p class="playlist-genres">{{ tag.name }}</p>
                         {% endfor %}
                     </div>
                 </div>
