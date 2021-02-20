@@ -1,5 +1,6 @@
 from django.core.management import BaseCommand
 from mainapp.models import Album, Label, Tag, Artist
+from authapp.models import SiteUser
 
 class Command(BaseCommand):
 
@@ -37,7 +38,9 @@ class Command(BaseCommand):
         album2.tags.add(tag1)
         album2.labels.add(label1)
         album2.labels.add(label2)
-        print(Tag.objects.all())
-        print(Label.objects.all())
-        print(Artist.objects.all())
-        print(Album.objects.all())
+        # print(Tag.objects.all())
+        # print(Label.objects.all())
+        # print(Artist.objects.all())
+        # print(Album.objects.all())
+        super_user = SiteUser.objects.create_superuser('nerhneiro', 'nerhneiro@gmail.com', 'janelake', age=15)
+        print(tag1.tagged_albums.all())

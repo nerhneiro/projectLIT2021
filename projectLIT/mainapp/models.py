@@ -32,7 +32,6 @@ class Album(models.Model):
     #tags = ArrayField(models.ForeignKey(Tag), null=True, on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tag, related_name="tagged_albums")
     labels = models.ManyToManyField(Label, related_name="labeled_albums")
-    #labels = models.ForeignKey(Label, verbose_name="Labels", null=True, on_delete=models.CASCADE)
     #жанры, стили, год
 #     #image field
 #     #from spotify/yandex check
