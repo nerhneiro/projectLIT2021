@@ -14,6 +14,12 @@ class Label(models.Model):
     idDiscogs = models.PositiveIntegerField(verbose_name="DiscogsID")
     #albums = models.ManyToManyField(Album)
 
+class Genre(models.Model):
+    name = models.CharField(verbose_name='genre', max_length=128)
+
+class Style(models.Model):
+    name = models.CharField(verbose_name='style', max_length=128)
+
 class Album(models.Model):
     idYandex = models.PositiveIntegerField(verbose_name="YandexMusicID")
     idDiscogs = models.PositiveIntegerField(verbose_name="DiscogsID")
@@ -30,8 +36,12 @@ class Album(models.Model):
     #     labelsChoices.append(i.name)
     # labelsChoices = tuple(labelsChoices)
     #tags = ArrayField(models.ForeignKey(Tag), null=True, on_delete=models.CASCADE)
-    tags = models.ManyToManyField(Tag, related_name="tagged_albums")
-    labels = models.ManyToManyField(Label, related_name="labeled_albums")
+    tags = models.ManyToManyField(Tag, related_name="tagged_albums", blank=True)
+    labels = models.ManyToManyField(Label, related_name="labeled_albums", blank=True)
+    genres = models.ManyToManyField(Genre, related_name='genred_albums', blank=True)
+    styles = models.ManyToManyField(Style, related_name='styled_albums', blank=True)
+    cover = models.ImageField(width_field=100, height_field=100, blank=True)
+    year = models.PositiveIntegerField(verbose_name='year', default=0)
     #жанры, стили, год
 #     #image field
 #     #from spotify/yandex check
