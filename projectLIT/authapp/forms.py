@@ -12,18 +12,18 @@ class SiteUserLoginForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super(SiteUserLoginForm, self).__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'form-control'
+            field.widget.attrs['class'] = 'form_signin'
 
 
 class SiteUserRegisterForm(UserCreationForm):
     class Meta:
         model = SiteUser
-        fields = ('username', 'first_name', 'password1', 'password2', 'email', 'age')
+        fields = ('username', 'first_name', 'email', 'password1', 'password2')
 
     def __init__(self, *args, **kwargs):
         super(SiteUserRegisterForm, self).__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'form-control'
+            field.widget.attrs['class'] = 'form_register'
             field.help_text = ''
 
 

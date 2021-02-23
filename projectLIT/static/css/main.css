@@ -484,7 +484,7 @@ html, body {
     font-family: 'Roboto';
     font-size: 2em;
     line-height: 40px;
-    font-weight: 500; 
+    font-weight: 500;
 }
 .welcome-block-href {
     text-decoration: none;
@@ -556,6 +556,19 @@ html, body {
 .form_register input {
 	width: 40%;
 }
+.form_register input[type=email] {
+    width: 40%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  border-radius: 5px;
+  background: #FEFAE0;
+}
+/*.form_register input[type=text]:focus, input[type=email]:focus {*/
+/*  background-color: rgb(234, 233, 240);*/
+/*  outline: none;*/
+/*}*/
 .register_button {
     outline:0;
     font-size:1em;
@@ -592,7 +605,7 @@ html, body {
     4px 4px 0 0 #606C38,
     5px 5px 0 0 #606C38;
 }
-.form_register input[type=text], input[type=password] {
+.form_register input[type=text], input[type=password], input[type=email] {
   width: 40%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -601,7 +614,7 @@ html, body {
   border-radius: 5px;
   background: #FEFAE0;
 }
-.form_register input[type=text]:focus, input[type=password]:focus {
+.form_register input[type=text]:focus, input[type=password]:focus,  input[type=email]:focus {
   background-color: rgb(234, 233, 240);
   outline: none;
 }
@@ -641,6 +654,15 @@ html, body {
 .signin_block_inside {
 	padding-top: 10px;
 	padding-bottom: 10px;
+    display: block;
+}
+.singin-text {
+    color: black;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+#singin-text::after{
+    content: "\a";
+    white-space: pre;
 }
 .form_signin label {
 	color: black;
@@ -697,6 +719,15 @@ html, body {
 .form_signin input[type=text]:focus, input[type=password]:focus {
   background-color: rgb(234, 233, 240);
   outline: none;
+}
+.form_signin input[type=email] {
+    width: 40%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  border-radius: 5px;
+  background: #FEFAE0;
 }
 .middle-block-signin{
 	width: 100%;

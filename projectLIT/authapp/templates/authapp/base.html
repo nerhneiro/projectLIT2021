@@ -11,23 +11,32 @@
     {% block css %}
         <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %} ">
-{#        <link rel="stylesheet" href="{% static 'fonts/font-awesome/css/font-awesome.css' %}">#}
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+
+        <link rel="stylesheet" href="{% static 'fonts/font-awesome/css/font-awesome.css' %}">
     {% endblock %}
     {% block js %}
 
     {% endblock %}
 </head>
 <body>
-	<div class="container">
-        <div class="login">
-            <div class="h2 text-center head">
-                Аутентификация
-            </div>            
+    <div class="menu">
+       <div class="menu-elements">
+        <ul class="menu-list">
+            <li class="menu-element"><a class="menu-element-href" href="{% url 'mainapp:main' %}">News</a></li>
+            <li class="menu-element"><a class="menu-element-href" href="{% url 'mainapp:playlists' %}">Playlists</a></li>
+            <li class="menu-element"><a class="menu-element-href" href="{% url 'mainapp:accounts' %}">Connected accounts</a></li>
+            <li class="menu-element"><a href="#" class="menu-element-href">Settings</a></li>
+            <li class="log-out-element"><a class="menu-element-pressed" href="{% url 'auth:logout' %}">Log out</a></li>
+            <li class="menu-element-name"><a href="{% url 'mainapp:account' %}">IRENE</a></li>
+            <li class="photo-element"><a href="{% url 'mainapp:account' %}" ><img src="{% static 'img/gramophone.png' %}" alt="photo"></a></li>
+        </ul>
+    </div>
+    </div>
             
             {% block content %}
 
             {% endblock %}
-        </div>
-	</div>
 </body>
 </html>

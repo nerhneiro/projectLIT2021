@@ -3,16 +3,20 @@
 
 
 {% block content %}
-    <form class="form-horizontal" action="{% url 'auth:login' %}" method="post">
+<div class="signin-content">
+ <div class="middle-block-signin">
+  <div class="signin_block">
+    <div class="signin_block_inside">
+    <h1 class="sigin_text">Sign in</h1>
+
+    <form class="form_signin" action="{% url 'auth:login' %}" method="post">
         {% csrf_token %}
         {{ login_form.as_p }}
         <br>
-        <input class="form-control" type="submit" value="войти">
+        <input class="signin_button" type="submit" value="Sign in">
     </form>
-    <button class="btn btn-round form-control">
-        <a href="{% url 'auth:register' %}" class="">
-            зарегистрироваться
-        </a>
-    </button>
-
+  <a href="{% url 'auth:register' %}">
+    <p>Don't have an account?</p>
+    <p>Register</p>
+  </a>
 {% endblock %}
