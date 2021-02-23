@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from .models import Album, Artist, Label, Tag
 # Create your views here.
@@ -7,15 +8,18 @@ def main(request):
         username = request.user.username
         log_link = 'auth:logout'
         log_message = 'Log out'
+        authenticated = True
     else:
         username = ''
         log_link = 'auth:login'
         log_message = 'Log in'
+        authenticated = False
     context = {
         'title': 'Main',
         'username': username,
         'log_message': log_message,
         'log_link': log_link,
+        'authenticated': authenticated,
     }
 
     return render(request, 'mainapp/index.html', context)
@@ -51,13 +55,31 @@ def playlists(request):
 def account(request):
     if request.user.is_authenticated:
         username = request.user.username
+        first_name = request.user.first_name
+        last_name = request.user.last_name
+        date_joined = request.user.date_joined
+        country = request.user.country
+        age = request.user.age
+        context = {
+            'title': 'Account',
+            'username': username,
+            'first_name': first_name,
+            'last_name': last_name,
+            'date_joined': date_joined,
+            'country': country,
+            'age': age,
+        }
+        return render(request, 'mainapp/account.html', context)
     else:
-        username = ''
-    context = {
-        'title': 'Account',
-        'username': username,
-    }
-    return render(request, 'mainapp/account.html', context)
+        next = request.POST.get('next', '/')
+        return HttpResponseRedirect(next)
+    # else:
+    #     username = ''
+    #     first_name = 'User'
+    #     last_name = ''
+    #     date_joined = None
+    #     country = None
+    #     age = None
 
 #
 # def register(request):

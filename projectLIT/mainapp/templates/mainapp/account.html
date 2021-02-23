@@ -25,16 +25,16 @@
        </div>
        <div class="account-information">
            <div class="account-information-main">
-               <p class="account-name-surname">Irene Skvortsova</p>
+               <p class="account-name-surname">{{ first_name }} {{ last_name }}</p>
            </div>
            <div class="account-information-additional">
-               <p class="account-registration-date">Registered: 24 november 2020</p>
-               <p class="account-country">Country: Russia</p>
-               <p class="account-age">Age: 15</p>
+               <p class="account-registration-date">Registered: {{ date_joined }}</p>
+               <p class="account-country">Country: {{ country }}</p>
+               <p class="account-age">Age: {{ age }}</p>
                <div class="account-connected-accounts">Connected accounts: 1</div>
            </div>
            <div class="account-settings">
-           <p class="logout"><a href="">Log out</a></p>
+           <p class="logout"><a href="{% url 'auth:logout' %}">Log out</a></p>
            <p class="change-password"><a href="">Change password</a></p>
            <p class="subscribe"><a href="">Subscribe to distribution</a></p>
        </div>
