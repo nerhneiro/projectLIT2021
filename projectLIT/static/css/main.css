@@ -565,10 +565,6 @@ html, body {
   border-radius: 5px;
   background: #FEFAE0;
 }
-/*.form_register input[type=text]:focus, input[type=email]:focus {*/
-/*  background-color: rgb(234, 233, 240);*/
-/*  outline: none;*/
-/*}*/
 .register_button {
     outline:0;
     font-size:1em;
@@ -919,4 +915,80 @@ html, body {
 .contacts-ig {
     font-size: 1.5vw;
     line-height: 2vw;
+}
+
+/*EDIT PAGE*/
+.edit_page_form_block {
+margin: auto;
+	border-radius: 3px;
+	text-align: center;
+	height: auto;
+	width: 50%;
+	background-color: #BBC893;
+	box-shadow: 6px 8px 4px -3px #49632C;
+    margin-bottom: 20px;
+}
+/*.form_edit href {*/
+/*    color: black;*/
+/*    font-family: 'Roboto';*/
+/*    font-size: 2vw;*/
+/*    line-height: 3vw;*/
+/*    font-weight: 500;*/
+/*}*/
+.form_edit {
+}
+.form_edit_href {
+    text-decoration: none;
+    color: black;
+    font-family: 'Roboto';
+    font-weight: 500;
+}
+.form_edit_button {
+    outline:0;
+    font-size:1em;
+    margin-bottom: 20px;
+    font-weight:600;
+    background:white;
+    border:none;
+    padding: 1em 2em;
+    transition:all .3s ease-out;
+    box-shadow:inset 0 -8px 0 0 rgba(0,0,0,.2),
+    1px 1px 0 0 #606C38,
+    2px 2px 0 0 #606C38,
+    3px 3px 0 0 #606C38,
+    4px 4px 0 0 #606C38,
+    5px 5px 0 0 #606C38,
+    6px 6px 0 0 #606C38,
+    7px 7px 0 0 #606C38,
+    8px 8px 0 0 #606C38,
+    9px 9px 0 0 #606C38,
+    10px 10px 0 0 #606C38,
+    11px 11px 0 0 #606C38,
+    12px 12px 0 0 #606C38;
+}
+.form_edit_button:hover{
+    color:#606C38;
+    cursor: pointer;
+}
+.form_edit_button:active{
+  color:#222;
+  box-shadow:inset 0 -4px 0 0 rgba(0,0,0,.1),
+    1px 1px 0 0 #606C38,
+    2px 2px 0 0 #606C38,
+    3px 3px 0 0 #606C38,
+    4px 4px 0 0 #606C38,
+    5px 5px 0 0 #606C38;
+}
+.form_edit input[type=text], input[type=password], input[type=number], input[type=email] {
+  width: 40%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  border-radius: 5px;
+  background: #FEFAE0;
+}
+.form_edit input[type=text]:focus, input[type=password]:focus, input[type=number]:focus, input[type=email]:focus {
+  background-color: rgb(234, 233, 240);
+  outline: none;
 }

@@ -20,24 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8fafe169-4177-4859-a71d-fbc6585cb8e3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/projectLIT/mainapp/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectLIT/authapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/authapp/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectLIT/authapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/authapp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectLIT/authapp/templates/authapp/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/authapp/templates/authapp/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projectLIT/authapp/templates/authapp/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/authapp/templates/authapp/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectLIT/authapp/templates/authapp/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/authapp/templates/authapp/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectLIT/authapp/templates/authapp/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/authapp/templates/authapp/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectLIT/authapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/authapp/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projectLIT/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectLIT/mainapp/templates/mainapp/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/mainapp/templates/mainapp/account.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectLIT/mainapp/templates/mainapp/connectedaccounts.html" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/mainapp/templates/mainapp/connectedaccounts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectLIT/mainapp/templates/mainapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/mainapp/templates/mainapp/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectLIT/mainapp/templates/mainapp/playlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/mainapp/templates/mainapp/playlist.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectLIT/mainapp/templates/mainapp/playlists.html" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/mainapp/templates/mainapp/playlists.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectLIT/mainapp/templates/mainapp/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/mainapp/templates/mainapp/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectLIT/mainapp/templates/mainapp/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/mainapp/templates/mainapp/signin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectLIT/projectLIT/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/projectLIT/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projectLIT/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/static/css/main.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -162,7 +147,7 @@
       <workItem from="1613842652808" duration="132000" />
       <workItem from="1613919139673" duration="4769000" />
       <workItem from="1614024154275" duration="103000" />
-      <workItem from="1614024268691" duration="2640000" />
+      <workItem from="1614024268691" duration="4093000" />
     </task>
     <servers />
   </component>
