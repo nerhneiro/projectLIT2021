@@ -19,7 +19,10 @@ def connected(request):
 
 
 def playlists(request):
-    albums = Album.objects.all()
+    if request.user.is_authenticated:
+        albums = request.user.albums.all()
+    else:
+        albums = []
     context = {
         'title': 'Playlists',
         'albums': albums

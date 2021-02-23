@@ -16,6 +16,8 @@ def login(request):
         user = auth.authenticate(username=username, password=password)
         if user and user.is_active:
             auth.login(request, user)
+            albums = user.albums.all()
+            print(albums)
             return HttpResponseRedirect(reverse('mainapp:main'))
 
     content = {'title': title, 'login_form': login_form}
