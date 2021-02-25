@@ -26,7 +26,17 @@ class SiteUserRegisterForm(UserCreationForm):
             field.widget.attrs['class'] = 'form_register'
             field.help_text = ''
 
+class ConnectYandexMusicAccount(UserChangeForm):
+    passwordYM = forms.CharField(widget=forms.PasswordInput)
+    class Meta:
+        model = SiteUser
+        fields = ('emailYM', 'passwordYM')
 
+    def __init__(self, *args, **kwargs):
+        super(ConnectYandexMusicAccount, self).__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form_register'
+            field.help_text = ''
 
 class SiteUserEditForm(UserChangeForm):
     class Meta:

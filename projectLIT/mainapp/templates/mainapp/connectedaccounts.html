@@ -22,6 +22,9 @@
        <div class="connected-accounts-content-inside">
           <div class="connected-accounts -information">
            <div class="already-connected-accounts">
+               {% if authenticated %}
+               <a href="{% url 'auth:connectYM' %}"><button class="content-news-beginning-button-login">Connect Yandex Music account</button></a>
+               {% endif %}
                <p class="already-connected-accounts-header">Already connected accounts</p>
                <div class="connected-account">
                   <div class="connected-account-image-block">

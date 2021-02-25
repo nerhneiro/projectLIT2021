@@ -21,18 +21,20 @@ def main(request):
         'log_link': log_link,
         'authenticated': authenticated,
     }
-
     return render(request, 'mainapp/index.html', context)
 
 
 def connected(request):
     if request.user.is_authenticated:
         username = request.user.username
+        authenticated = True
     else:
         username = ''
+        authenticated = False
     context = {
         'title': 'Connected accounts',
         'username': username,
+        'authenticated': authenticated,
     }
     return render(request, 'mainapp/connectedaccounts.html', context)
 
@@ -73,28 +75,6 @@ def account(request):
     else:
         next = request.POST.get('next', '/')
         return HttpResponseRedirect(next)
-    # else:
-    #     username = ''
-    #     first_name = 'User'
-    #     last_name = ''
-    #     date_joined = None
-    #     country = None
-    #     age = None
-
-#
-# def register(request):
-#
-#     context = {
-#         'title': 'Registration'
-#     }
-#     return render(request, 'mainapp/register.html',context)
-#
-#
-# def signin(request):
-#     context = {
-#         'title': 'Sign in'
-#     }
-#     return render(request, 'mainapp/signin.html', context)
 
 
 def playlist(request):

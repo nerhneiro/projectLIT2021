@@ -1,9 +1,8 @@
 from django.shortcuts import render, HttpResponseRedirect
-from authapp.forms import SiteUserLoginForm, SiteUserRegisterForm
+from authapp.forms import SiteUserLoginForm, SiteUserRegisterForm, SiteUserEditForm, ConnectYandexMusicAccount
 from django.contrib import auth
 from django.urls import reverse
 
-from authapp.forms import SiteUserEditForm
 
 def login(request):
     title = 'вход'
@@ -77,3 +76,17 @@ def edit(request):
     content = {'title': title, 'edit_form': edit_form}
     
     return render(request, 'authapp/edit.html', content)
+
+def connectYM(request):
+    title = ''
+    if request.method == 'POST':
+        edit_form = ConnectYandexMusicAccount(request.POST, request.FILES, instance=request.user)
+        if edit_form.is_valid():
+            edit_form.save()
+            return HttpResponseRedirect(reverse('auth:connectYM'))
+    else:
+        edit_form = ConnectYandexMusicAccount(instance=request.user)
+
+    content = {'title': title, 'edit_form': edit_form}
+
+    return render(request, 'authapp/connectYM.html', content)

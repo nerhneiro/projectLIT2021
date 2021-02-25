@@ -10,3 +10,5 @@ class SiteUser(AbstractUser):
     albums = models.ManyToManyField(Album, verbose_name='albums', blank=True, related_name='album_users')
     email = models.EmailField(unique=True, verbose_name='email')
     country = models.CharField(max_length=128, blank=True, null=True, verbose_name='country')
+    passwordYM = models.CharField(max_length=256, blank=True, verbose_name='Yandex Music password')
+    emailYM = models.EmailField(max_length=128, blank=True, verbose_name='yandex Music email')
