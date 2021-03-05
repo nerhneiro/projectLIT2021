@@ -1,4 +1,5 @@
 projectLIT/scripts/secret.py
+projectLIT/authapp/secret.py
 .idea
 *.DS_Store
 ._*

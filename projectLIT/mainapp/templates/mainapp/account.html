@@ -29,13 +29,17 @@
            </div>
            <div class="account-information-additional">
                <p class="account-registration-date">Registered: {{ date_joined }}</p>
+               {% if country != None %}
                <p class="account-country">Country: {{ country }}</p>
+               {% endif %}
+           {% if age != None %}
                <p class="account-age">Age: {{ age }}</p>
+           {% endif %}
                <div class="account-connected-accounts">Connected accounts: 1</div>
            </div>
            <div class="account-settings">
            <p class="logout"><a href="{% url 'auth:logout' %}">Log out</a></p>
-           <p class="change-password"><a href="">Change password</a></p>
+           <p class="change-password"><a href="{% url 'auth:edit' %}">Change information</a></p>
            <p class="subscribe"><a href="">Subscribe to distribution</a></p>
        </div>
        </div>
