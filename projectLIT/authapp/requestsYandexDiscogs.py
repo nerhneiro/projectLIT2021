@@ -18,7 +18,7 @@ def get_info(album, artists):
     styles = []
     year = 0
     labels = set([])
-
+    idDiscogs = 0
     searching = True
     for artist in artists:
         if searching == True:
@@ -33,6 +33,7 @@ def get_info(album, artists):
                 # print(title.upper(), len(title), title.count(' '))
                 # print(album.upper(), len(album), album.count(' '))
                 if title.upper() == album.upper():
+                    idDiscogs = i.id
                     genres = i.genres
                     styles = i.styles
                     year = i.year
@@ -60,4 +61,4 @@ def get_info(album, artists):
         else:
             break
     print('\n')
-    return year, genres, styles, labels
+    return year, genres, styles, labels, idDiscogs

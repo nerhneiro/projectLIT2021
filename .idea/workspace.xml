@@ -20,28 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8fafe169-4177-4859-a71d-fbc6585cb8e3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/projectLIT/authapp/requestsYandexDiscogs.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectLIT/authapp/secret.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectLIT/authapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/authapp/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectLIT/authapp/templates/authapp/connectYM.html" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/authapp/templates/authapp/connectYM.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectLIT/authapp/templates/authapp/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/authapp/templates/authapp/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectLIT/authapp/requestsYandexDiscogs.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/authapp/requestsYandexDiscogs.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projectLIT/authapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/authapp/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projectLIT/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectLIT/mainapp/templates/mainapp/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/mainapp/templates/mainapp/account.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.7/site-packages/discogs_client-2.3.0.dist-info/INSTALLER" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.7/site-packages/discogs_client-2.3.0.dist-info/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.7/site-packages/discogs_client-2.3.0.dist-info/METADATA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.7/site-packages/discogs_client-2.3.0.dist-info/RECORD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.7/site-packages/discogs_client-2.3.0.dist-info/REQUESTED" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.7/site-packages/discogs_client-2.3.0.dist-info/WHEEL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.7/site-packages/discogs_client-2.3.0.dist-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.7/site-packages/discogs_client/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.7/site-packages/discogs_client/client.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.7/site-packages/discogs_client/exceptions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.7/site-packages/discogs_client/fetchers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.7/site-packages/discogs_client/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python3.7/site-packages/discogs_client/utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectLIT/mainapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectLIT/mainapp/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +153,7 @@
       <workItem from="1614431257915" duration="2629000" />
       <workItem from="1614453125705" duration="1023000" />
       <workItem from="1614698680776" duration="440000" />
-      <workItem from="1614961276129" duration="4352000" />
+      <workItem from="1614961276129" duration="7300000" />
     </task>
     <servers />
   </component>

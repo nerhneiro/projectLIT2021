@@ -23,10 +23,10 @@ class Style(models.Model):
 class Album(models.Model):
     idYandex = models.PositiveIntegerField(verbose_name="YandexMusicID")
     idDiscogs = models.PositiveIntegerField(verbose_name="DiscogsID")
-    idDiscogsSecondary = models.PositiveIntegerField(verbose_name="DiscogsSecondaryID")
+    idDiscogsSecondary = models.PositiveIntegerField(verbose_name="DiscogsSecondaryID", null=True)
     name = models.CharField(verbose_name="Album's name", max_length=128)
     image = models.ImageField(upload_to='Cover image', blank=True)
-    artist = models.ForeignKey(Artist, verbose_name="Artist", null=True, on_delete=models.CASCADE)
+    artists = models.ManyToManyField(Artist, verbose_name="Artists", blank=True, related_name='albums')
     #tags = models.ManyToManyField(Tag, blank=True)
     #tags = models.ForeignKey(Tag, verbose_name="Tags", null=True, on_delete=models.CASCADE)
     #labels = models.ManyToManyField(Label, blank=True)

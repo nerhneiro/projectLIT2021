@@ -96,22 +96,38 @@ def connectYM(request):
                 for ar in al['album']['artists']:
                     artists.append(ar['name'])
                 album = al['album']['title']
-                year, genres, styles, labels = ryd.get_info(album, artists)
-                for g in genres:
-                    try:
-                        genre = Genre.objects.get(name=g)
-                    except:
-                        Genre.objects.create(name=g)
-                for l, id in labels:
-                    try:
-                        lable = Label.objects.get(name=l)
-                    except:
-                        Label.objects.create(name=l, idDiscogs=id)
-                for s in styles:
-                    try:
-                        style = Style.objects.get(name=s)
-                    except:
-                        Style.objects.create(name=s)
+                idYM = al['album']['id']
+                try:
+                    album = Album.objects.get(idYandex=idYM)
+                except:
+                    year, genres, styles, labels, idDiscogs = ryd.get_info(album, artists)
+                    albumNew = Album.objects.create(idYandex=idYM, idDiscogs=idDiscogs, name=album, year=year)
+                    albumNew.save()
+                    for g in genres:
+                        try:
+                            genre = Genre.objects.get(name=g)
+                            albumNew.genres.add(genre)
+                        except:
+                            genreNew = Genre.objects.create(name=g)
+                            genreNew.save()
+                            albumNew.genres.add(genreNew)
+                    for l, id in labels:
+                        try:
+                            label = Label.objects.get(name=l)
+                            albumNew.labels.add(label)
+                        except:
+                            labelNew = Label.objects.create(name=l, idDiscogs=id)
+                            labelNew.save()
+                            albumNew.labels.add(labelNew)
+                    for s in styles:
+                        try:
+                            style = Style.objects.get(name=s)
+                            albumNew.styles.add(style)
+                        except:
+                            styleNew = Style.objects.create(name=s)
+                            styleNew.save()
+                            albumNew.styles.add(styleNew)
+                    albumNew.save()
             return HttpResponseRedirect(reverse('mainapp:main'))
     else:
         edit_form = ConnectYandexMusicAccount(instance=request.user)
