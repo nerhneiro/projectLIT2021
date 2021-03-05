@@ -94,7 +94,7 @@ def connectYM(request):
             for al in albums:
                 artists = []
                 for ar in al['album']['artists']:
-                    artists.append(ar['name'])
+                    artists.append((ar['name'], ar['id']))
                 album = al['album']['title']
                 idYM = al['album']['id']
                 try:
@@ -133,6 +133,14 @@ def connectYM(request):
                             styleNew = Style.objects.create(name=s)
                             styleNew.save()
                             albumNew.styles.add(styleNew)
+                    for ar, id in artists:
+                        try:
+                            artist = Artist.objects.get(idDiscogs=id)
+                            albumNew.artists.add(artist)
+                        except:
+                            artistNew = Artist.objects.create(name=ar, idDiscogs=id)
+                            artistNew.save()
+                            albumNew.artists.add(artistNew)
                     albumNew.save()
                     user.albums.add(albumNew)
             return HttpResponseRedirect(reverse('mainapp:main'))

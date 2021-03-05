@@ -20,7 +20,7 @@ def get_info(album, artists):
     labels = set([])
     idDiscogs = 0
     searching = True
-    for artist in artists:
+    for artist, idArtist in artists:
         if searching == True:
             releases = d.search(album, artist=artist, type='release')
             for i in releases:
