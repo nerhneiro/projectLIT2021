@@ -98,7 +98,13 @@ def connectYM(request):
                 album = al['album']['title']
                 idYM = al['album']['id']
                 try:
-                    album = Album.objects.get(idYandex=idYM)
+                    # print(user.albums.all())
+                    albumExisting = Album.objects.get(idYandex=idYM)
+                    # print(albumExisting.album_users.all())
+                    try:
+                        album = user.albums.get(idYandex=idYM)
+                    except:
+                        user.albums.add(albumExisting)
                 except:
                     year, genres, styles, labels, idDiscogs = ryd.get_info(album, artists)
                     albumNew = Album.objects.create(idYandex=idYM, idDiscogs=idDiscogs, name=album, year=year)
@@ -128,6 +134,7 @@ def connectYM(request):
                             styleNew.save()
                             albumNew.styles.add(styleNew)
                     albumNew.save()
+                    user.albums.add(albumNew)
             return HttpResponseRedirect(reverse('mainapp:main'))
     else:
         edit_form = ConnectYandexMusicAccount(instance=request.user)
