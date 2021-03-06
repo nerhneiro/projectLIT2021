@@ -22,7 +22,7 @@
   <div class="signin_block">
     <div class="signin_block_inside">
     <h1 class="sigin_text">Enter your Yandex Music account information</h1>
-
+    <p>If you've already connected a Yandex Music account and decide to connect a new one, your previous music collections will be removed.</p>
     <form class="form_signin" action="{% url 'auth:connectYM' %}" method="post">
         {% csrf_token %}
         {{ edit_form.as_p }}

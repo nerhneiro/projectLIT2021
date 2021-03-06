@@ -109,38 +109,42 @@ def connectYM(request):
                     year, genres, styles, labels, idDiscogs = ryd.get_info(album, artists)
                     albumNew = Album.objects.create(idYandex=idYM, idDiscogs=idDiscogs, name=album, year=year)
                     albumNew.save()
-                    for g in genres:
-                        try:
-                            genre = Genre.objects.get(name=g)
-                            albumNew.genres.add(genre)
-                        except:
-                            genreNew = Genre.objects.create(name=g)
-                            genreNew.save()
-                            albumNew.genres.add(genreNew)
-                    for l, id in labels:
-                        try:
-                            label = Label.objects.get(name=l)
-                            albumNew.labels.add(label)
-                        except:
-                            labelNew = Label.objects.create(name=l, idDiscogs=id)
-                            labelNew.save()
-                            albumNew.labels.add(labelNew)
-                    for s in styles:
-                        try:
-                            style = Style.objects.get(name=s)
-                            albumNew.styles.add(style)
-                        except:
-                            styleNew = Style.objects.create(name=s)
-                            styleNew.save()
-                            albumNew.styles.add(styleNew)
-                    for ar, id in artists:
-                        try:
-                            artist = Artist.objects.get(idDiscogs=id)
-                            albumNew.artists.add(artist)
-                        except:
-                            artistNew = Artist.objects.create(name=ar, idDiscogs=id)
-                            artistNew.save()
-                            albumNew.artists.add(artistNew)
+                    if genres != None:
+                        for g in genres:
+                            try:
+                                genre = Genre.objects.get(name=g)
+                                albumNew.genres.add(genre)
+                            except:
+                                genreNew = Genre.objects.create(name=g)
+                                genreNew.save()
+                                albumNew.genres.add(genreNew)
+                    if labels != None:
+                        for l, id in labels:
+                            try:
+                                label = Label.objects.get(name=l)
+                                albumNew.labels.add(label)
+                            except:
+                                labelNew = Label.objects.create(name=l, idDiscogs=id)
+                                labelNew.save()
+                                albumNew.labels.add(labelNew)
+                    if styles != None:
+                        for s in styles:
+                            try:
+                                style = Style.objects.get(name=s)
+                                albumNew.styles.add(style)
+                            except:
+                                styleNew = Style.objects.create(name=s)
+                                styleNew.save()
+                                albumNew.styles.add(styleNew)
+                    if artists != None:
+                        for ar, id in artists:
+                            try:
+                                artist = Artist.objects.get(idDiscogs=id)
+                                albumNew.artists.add(artist)
+                            except:
+                                artistNew = Artist.objects.create(name=ar, idDiscogs=id)
+                                artistNew.save()
+                                albumNew.artists.add(artistNew)
                     albumNew.save()
                     user.albums.add(albumNew)
             return HttpResponseRedirect(reverse('mainapp:main'))

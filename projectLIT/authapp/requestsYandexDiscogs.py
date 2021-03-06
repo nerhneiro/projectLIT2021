@@ -53,7 +53,10 @@ def get_info(album, artists):
                     except:
                         print("Styles: No information")
                     try:
-                        print("Labels: ", ', '.join(labels))
+                        print('Labels: ', end='')
+                        for l, idLabel in labels:
+                            print(l, end=' ')
+
                     except:
                         print("Labels: No information")
                     searching = False
