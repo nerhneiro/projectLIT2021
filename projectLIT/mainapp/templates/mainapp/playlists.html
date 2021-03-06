@@ -19,9 +19,10 @@
     {% endblock %}
 {% block content %}
     <div class="content">
-
         <div class="playlists">
-
+{% if yandexMusicConnected == True %}
+        <a href="{% url 'mainapp:updateDB' %}"><button class="button_update">Update</button></a>
+    {% endif %}
             <div class="playlists-inside">
                 {%  for album in albums %}
                     <a class="playlist-href" href="/playlist/">

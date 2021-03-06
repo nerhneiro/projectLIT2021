@@ -22,10 +22,14 @@
        <div class="connected-accounts-content-inside">
           <div class="connected-accounts -information">
            <div class="already-connected-accounts">
-               {% if authenticated %}
+               {% if authenticated and yandexMusicConnected == False %}
                <a href="{% url 'auth:connectYM' %}"><button class="content-news-beginning-button-login">Connect Yandex Music account</button></a>
                {% endif %}
+           {% if authenticated and yandexMusicConnected == True %}
+           <a href="{% url 'auth:connectYM' %}"><button class="content-news-beginning-button-login">Switch Yandex Music account</button></a>
+               {% endif %}
                <p class="already-connected-accounts-header">Already connected accounts</p>
+     {% if yandexMusicConnected == True %}
                <div class="connected-account">
                   <div class="connected-account-image-block">
                       <img src="{% static 'img/yandex_account.png' %}" alt="" class="connected-account-image">
@@ -36,6 +40,7 @@
                    <p class="connected-account-information-account">Yandex Music</p>
                    </div>
                </div>
+{%  endif %}
            </div>
            <div class="connect-accounts-suggestion">
                <p class="connect-accounts-suggestion-header">

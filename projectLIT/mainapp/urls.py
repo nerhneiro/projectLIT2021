@@ -10,6 +10,7 @@ urlpatterns = [
     path('playlist/', mainapp.playlist, name='playlist'),
     path('accounts/', mainapp.connected, name='accounts'),
     path('account/', mainapp.account, name='account'),
+    path('updateDB/', mainapp.updateDB, name='updateDB'),
     # path('register/', mainapp.register, name='register'),
     # path('signin/', mainapp.signin, name='signin'),
 ]

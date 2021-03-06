@@ -992,3 +992,29 @@ margin: auto;
   background-color: rgb(234, 233, 240);
   outline: none;
 }
+
+
+/*UPDATE BUTTON */
+.button_update {
+    outline:0;
+    font-size:1em;
+    margin-bottom: 20px;
+    font-weight:600;
+    background:white;
+    border: #6B7A3E 1px solid;
+    padding: 1em 2em;
+    transition:all .3s ease-out;
+}
+.button_update:hover{
+    color:#606C38;
+    cursor: pointer;
+}
+.button_update:active{
+  color:#222;
+  box-shadow:inset 0 -4px 0 0 rgba(0,0,0,.1),
+    1px 1px 0 0 #606C38,
+    2px 2px 0 0 #606C38,
+    3px 3px 0 0 #606C38,
+    4px 4px 0 0 #606C38,
+    5px 5px 0 0 #606C38;
+}
