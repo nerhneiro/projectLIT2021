@@ -55,7 +55,7 @@ def get_info(album, artists):
                     try:
                         print('Labels: ', end='')
                         for l, idLabel in labels:
-                            print(l, end=' ')
+                            print(l, end=', ')
 
                     except:
                         print("Labels: No information")

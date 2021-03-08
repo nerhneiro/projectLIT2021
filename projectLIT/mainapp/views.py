@@ -3,6 +3,7 @@ from django.shortcuts import render
 from .models import Album, Artist, Label, Tag, Genre, Style
 from yandex_music.client import Client
 import authapp.requestsYandexDiscogs as ryd
+from django.shortcuts import redirect
 # Create your views here.
 def main(request):
     albums = Album.objects.all()
@@ -50,7 +51,7 @@ def playlists(request):
     if request.user.is_authenticated:
         albums = request.user.albums.all()
         username = request.user.username
-        if request.user.emailYM != None and request.user.passwordYM != None:
+        if request.user.emailYM != (None or '') and request.user.passwordYM != (None or ''):
             yandexMusicConnected = True
     else:
         albums = []
@@ -65,85 +66,89 @@ def playlists(request):
     return render(request, 'mainapp/playlists.html', context)
 
 def updateDB(request):
-    # try:
-    user = request.user
-    client = Client.from_credentials(user.emailYM, user.passwordYM)
-    albums = client.users_likes_albums()
-    albumsIdYM = set()
-    for al in albums:
-        artists = []
-        for ar in al['album']['artists']:
-            artists.append((ar['name'], ar['id']))
-        album = al['album']['title']
-        idYM = al['album']['id']
-        albumsIdYM.add(idYM)
+    if request.user.is_authenticated and request.user.emailYM != None and request.user.passwordYM != None:
         try:
-            # print(user.albums.all())
-            albumExisting = Album.objects.get(idYandex=idYM)
-            # print(albumExisting.album_users.all())
-            try:
-                album = user.albums.get(idYandex=idYM)
-            except:
-                user.albums.add(albumExisting)
+            user = request.user
+            client = Client.from_credentials(user.emailYM, user.passwordYM)
+            albums = client.users_likes_albums()
+            albumsIdYM = set()
+            for al in albums:
+                artists = []
+                for ar in al['album']['artists']:
+                    artists.append((ar['name'], ar['id']))
+                album = al['album']['title']
+                idYM = al['album']['id']
+                albumsIdYM.add(idYM)
+                try:
+                    # print(user.albums.all())
+                    albumExisting = Album.objects.get(idYandex=idYM)
+                    # print(albumExisting.album_users.all())
+                    try:
+                        album = user.albums.get(idYandex=idYM)
+                    except:
+                        user.albums.add(albumExisting)
+                except:
+                    year, genres, styles, labels, idDiscogs = ryd.get_info(album, artists)
+                    albumNew = Album.objects.create(idYandex=idYM, idDiscogs=idDiscogs, name=album, year=year)
+                    albumNew.save()
+                    if genres != None:
+                        for g in genres:
+                            try:
+                                genre = Genre.objects.get(name=g)
+                                albumNew.genres.add(genre)
+                            except:
+                                genreNew = Genre.objects.create(name=g)
+                                genreNew.save()
+                                albumNew.genres.add(genreNew)
+                    if labels != None:
+                        for l, id in labels:
+                            try:
+                                label = Label.objects.get(name=l)
+                                albumNew.labels.add(label)
+                            except:
+                                labelNew = Label.objects.create(name=l, idDiscogs=id)
+                                labelNew.save()
+                                albumNew.labels.add(labelNew)
+                    if styles != None:
+                        for s in styles:
+                            try:
+                                style = Style.objects.get(name=s)
+                                albumNew.styles.add(style)
+                            except:
+                                styleNew = Style.objects.create(name=s)
+                                styleNew.save()
+                                albumNew.styles.add(styleNew)
+                    if artists != None:
+                        for ar, id in artists:
+                            try:
+                                artist = Artist.objects.get(idDiscogs=id)
+                                albumNew.artists.add(artist)
+                            except:
+                                artistNew = Artist.objects.create(name=ar, idDiscogs=id)
+                                artistNew.save()
+                                albumNew.artists.add(artistNew)
+                    albumNew.save()
+                    user.albums.add(albumNew)
+            albumsIdDB = set()
+            for i in user.albums.all():
+                albumsIdDB.add(i.idYandex)
+            albumsRemove1 = albumsIdYM - albumsIdDB
+            albumsRemove2 = albumsIdDB - albumsIdYM
+            albumsRemove = albumsRemove1.union(albumsRemove2)
+            for i in albumsRemove:
+                alb = user.albums.get(idYandex=i)
+                user.albums.remove(alb)
         except:
-            year, genres, styles, labels, idDiscogs = ryd.get_info(album, artists)
-            albumNew = Album.objects.create(idYandex=idYM, idDiscogs=idDiscogs, name=album, year=year)
-            albumNew.save()
-            if genres != None:
-                for g in genres:
-                    try:
-                        genre = Genre.objects.get(name=g)
-                        albumNew.genres.add(genre)
-                    except:
-                        genreNew = Genre.objects.create(name=g)
-                        genreNew.save()
-                        albumNew.genres.add(genreNew)
-            if labels != None:
-                for l, id in labels:
-                    try:
-                        label = Label.objects.get(name=l)
-                        albumNew.labels.add(label)
-                    except:
-                        labelNew = Label.objects.create(name=l, idDiscogs=id)
-                        labelNew.save()
-                        albumNew.labels.add(labelNew)
-            if styles != None:
-                for s in styles:
-                    try:
-                        style = Style.objects.get(name=s)
-                        albumNew.styles.add(style)
-                    except:
-                        styleNew = Style.objects.create(name=s)
-                        styleNew.save()
-                        albumNew.styles.add(styleNew)
-            if artists != None:
-                for ar, id in artists:
-                    try:
-                        artist = Artist.objects.get(idDiscogs=id)
-                        albumNew.artists.add(artist)
-                    except:
-                        artistNew = Artist.objects.create(name=ar, idDiscogs=id)
-                        artistNew.save()
-                        albumNew.artists.add(artistNew)
-            albumNew.save()
-            user.albums.add(albumNew)
-    albumsIdDB = set()
-    for i in user.albums.all():
-        albumsIdDB.add(i.idYandex)
-    albumsRemove1 = albumsIdYM - albumsIdDB
-    albumsRemove2 = albumsIdDB - albumsIdYM
-    albumsRemove = albumsRemove1.union(albumsRemove2)
-    for i in albumsRemove:
-        alb = user.albums.get(idYandex=i)
-        user.albums.remove(alb)
-    # except:
-    #     print("ERRRORRRR")
-    #     pass
+            pass
+        # except:
+        #     print("ERRRORRRR")
+        #     pass
     yandexMusicConnected = False
     if request.user.is_authenticated:
         albums = request.user.albums.all()
         username = request.user.username
-        if request.user.emailYM != None and request.user.passwordYM != None:
+        if request.user.emailYM != (None or '') and request.user.passwordYM != (None or ''):
+            # print("EMAILYM: ", request.user.emailYM)
             yandexMusicConnected = True
     else:
         albums = []
@@ -154,8 +159,9 @@ def updateDB(request):
         'username': username,
         'yandexMusicConnected': yandexMusicConnected,
     }
-
-    return render(request, 'mainapp/playlists.html', context)
+    # return HttpResponseRedirect('playlists')
+    return redirect('mainapp:playlists')
+    # return render(request, 'mainapp/playlists.html', context)
 
 def account(request):
     if request.user.is_authenticated:
@@ -180,12 +186,15 @@ def account(request):
         return HttpResponseRedirect(next)
 
 
-def playlist(request):
+def playlist(request, pk=None):
     if request.user.is_authenticated:
         username = request.user.username
     else:
         username = ''
+    album = Album.objects.get(pk=int(pk))
     context = {
         'username': username,
+        'album': album,
     }
+
     return render(request, 'mainapp/playlist.html', context)

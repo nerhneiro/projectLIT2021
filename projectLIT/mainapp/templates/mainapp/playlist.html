@@ -24,10 +24,11 @@
         <div class="playlist-header">
             <div class="playlist-picture"><img src="{% static 'img/playlist-image.png' %}" alt="playlist"></div>
             <div class="playlist-info">
-                <p class="playlist-info-name">Рождественские песни</p>
+                <p class="playlist-info-name">{{ album.name }}</p>
                 <div class="genres-text">
                 <p class="playlist-info-time">3 часа 18 минут</p>
-                <p  class="playlist-info-genres">джаз, фолк, классика, рок-н-ролл, блюз, поп</p>
+                <p  class="playlist-info-genres">
+                    {% for genre in album.genres.all %} {{ genre.name }}, {% endfor %}</p>
                 <p class="playlist-add-genres"><a id="href-info" class="playlist-info-href-additional" href="javascript:get_additional_information()">и еще 5 других</a></p>
                 <br>
                 <p id="info" class="playlist-info-genres-additional"> <br> кантри, соул, американа, альтернатива, инди-рок</p>
