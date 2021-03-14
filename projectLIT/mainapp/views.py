@@ -8,6 +8,7 @@ from django.shortcuts import redirect
 from PIL import Image
 import requests
 from pathlib import Path
+import time
 from django.views import View
 from django.views.generic import ListView, DetailView
 # from .filters import AlbumFilter
@@ -69,86 +70,92 @@ def playlists(request):
     }
 
     return render(request, 'mainapp/playlists.html', context)
-
+def fillInDB(albums, user):
+    albumsIdYM = set()
+    for al in albums:
+        artists = []
+        for ar in al['album']['artists']:
+            artists.append((ar['name'], ar['id']))
+        album = al['album']['title']
+        idYM = al['album']['id']
+        albumsIdYM.add(idYM)
+        image_url = 'http://' + al['album']['cover_uri'][:-2] + '300x300'
+        # image = Image.open(requests.get(image_url, stream=True).raw)
+        # filename = str(al['album']['id']) + '.jpg'
+        # p = Path('images/' + filename)
+        # image.save(p, format=None)
+        try:
+            # print(user.albums.all())
+            albumExisting = Album.objects.get(idYandex=idYM)
+            # print(albumExisting.album_users.all())
+            try:
+                album = user.albums.get(idYandex=idYM)
+            except:
+                user.albums.add(albumExisting)
+        except:
+            year, genres, styles, labels, idDiscogs = ryd.get_info(album, artists)
+            albumNew = Album.objects.create(idYandex=idYM, idDiscogs=idDiscogs, name=album, year=year)
+            albumNew.save()
+            if genres != None:
+                for g in genres:
+                    try:
+                        genre = Genre.objects.get(name=g)
+                        albumNew.genres.add(genre)
+                    except:
+                        genreNew = Genre.objects.create(name=g)
+                        genreNew.save()
+                        albumNew.genres.add(genreNew)
+            if labels != None:
+                for l, id in labels:
+                    try:
+                        label = Label.objects.get(name=l)
+                        albumNew.labels.add(label)
+                    except:
+                        labelNew = Label.objects.create(name=l, idDiscogs=id)
+                        labelNew.save()
+                        albumNew.labels.add(labelNew)
+            if styles != None:
+                for s in styles:
+                    try:
+                        style = Style.objects.get(name=s)
+                        albumNew.styles.add(style)
+                    except:
+                        styleNew = Style.objects.create(name=s)
+                        styleNew.save()
+                        albumNew.styles.add(styleNew)
+            if artists != None:
+                for ar, id in artists:
+                    try:
+                        artist = Artist.objects.get(idDiscogs=id)
+                        albumNew.artists.add(artist)
+                    except:
+                        artistNew = Artist.objects.create(name=ar, idDiscogs=id)
+                        artistNew.save()
+                        albumNew.artists.add(artistNew)
+            albumNew.imageURL = image_url
+            albumNew.save()
+            user.albums.add(albumNew)
+    albumsIdDB = set()
+    for i in user.albums.all():
+        albumsIdDB.add(i.idYandex)
+    albumsRemove1 = albumsIdYM - albumsIdDB
+    albumsRemove2 = albumsIdDB - albumsIdYM
+    albumsRemove = albumsRemove1.union(albumsRemove2)
+    for i in albumsRemove:
+        alb = user.albums.get(idYandex=i)
+        user.albums.remove(alb)
 def updateDB(request):
     if request.user.is_authenticated and request.user.emailYM != None and request.user.passwordYM != None:
         try:
             user = request.user
             client = Client.from_credentials(user.emailYM, user.passwordYM)
             albums = client.users_likes_albums()
-            albumsIdYM = set()
-            for al in albums:
-                artists = []
-                for ar in al['album']['artists']:
-                    artists.append((ar['name'], ar['id']))
-                album = al['album']['title']
-                idYM = al['album']['id']
-                albumsIdYM.add(idYM)
-                image_url = 'http://' + al['album']['cover_uri'][:-2] + '600x600'
-                image = Image.open(requests.get(image_url, stream=True).raw)
-                filename = str(al['album']['id']) + '.jpg'
-                p = Path('images/' + filename)
-                image.save(p, format=None)
-                try:
-                    # print(user.albums.all())
-                    albumExisting = Album.objects.get(idYandex=idYM)
-                    # print(albumExisting.album_users.all())
-                    try:
-                        album = user.albums.get(idYandex=idYM)
-                    except:
-                        user.albums.add(albumExisting)
-                except:
-                    year, genres, styles, labels, idDiscogs = ryd.get_info(album, artists)
-                    albumNew = Album.objects.create(idYandex=idYM, idDiscogs=idDiscogs, name=album, year=year)
-                    albumNew.save()
-                    if genres != None:
-                        for g in genres:
-                            try:
-                                genre = Genre.objects.get(name=g)
-                                albumNew.genres.add(genre)
-                            except:
-                                genreNew = Genre.objects.create(name=g)
-                                genreNew.save()
-                                albumNew.genres.add(genreNew)
-                    if labels != None:
-                        for l, id in labels:
-                            try:
-                                label = Label.objects.get(name=l)
-                                albumNew.labels.add(label)
-                            except:
-                                labelNew = Label.objects.create(name=l, idDiscogs=id)
-                                labelNew.save()
-                                albumNew.labels.add(labelNew)
-                    if styles != None:
-                        for s in styles:
-                            try:
-                                style = Style.objects.get(name=s)
-                                albumNew.styles.add(style)
-                            except:
-                                styleNew = Style.objects.create(name=s)
-                                styleNew.save()
-                                albumNew.styles.add(styleNew)
-                    if artists != None:
-                        for ar, id in artists:
-                            try:
-                                artist = Artist.objects.get(idDiscogs=id)
-                                albumNew.artists.add(artist)
-                            except:
-                                artistNew = Artist.objects.create(name=ar, idDiscogs=id)
-                                artistNew.save()
-                                albumNew.artists.add(artistNew)
-                    albumNew.image = image
-                    albumNew.save()
-                    user.albums.add(albumNew)
-            albumsIdDB = set()
-            for i in user.albums.all():
-                albumsIdDB.add(i.idYandex)
-            albumsRemove1 = albumsIdYM - albumsIdDB
-            albumsRemove2 = albumsIdDB - albumsIdYM
-            albumsRemove = albumsRemove1.union(albumsRemove2)
-            for i in albumsRemove:
-                alb = user.albums.get(idYandex=i)
-                user.albums.remove(alb)
+            try:
+                fillInDB(albums, user)
+            except:
+                print("YOU ARE MAKING REQUESTS TOO QUICKLY")
+                time.sleep(3)
+                fillInDB(albums, user)
         except:
             pass
         # except:
