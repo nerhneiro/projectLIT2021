@@ -101,27 +101,28 @@ ul, li {
 .playlist {
     width: 15vw;
     height: 15vw;
-    min-height: 250px;
-    min-width: 250px;
+    min-height: 300px;
+    min-width: 300px;
     max-height: 300px;
     max-width: 300px;
 /*    background-color: #B6E7AE;*/
-     background: #fdbb2d;
+/*     background: #fdbb2d;*/
+/*    background-image: url("http://avatars.yandex.net/get-music-content/2383988/d36d3de8.a.9268789-1/300x300");*/
     margin-right: 60px;
     float: left;
     margin-bottom: 60px;
     border-radius: 5px;
 }
 
-.playlist:hover {
-   background: rgb(253,85,45);
-background: linear-gradient(0deg, rgba(253,85,45,0.8673844537815126) 0%, rgba(253,187,45,1) 100%);
-/*background: linear-gradient(0deg, rgba(253,155,45,0.8673844537815126) 0%, rgba(253,187,45,1) 100%);*/
-}
-.playlist:active {
-   background: rgb(253,85,45);
-background: linear-gradient(0deg, rgba(253,85,45,0.8673844537815126) 0%, rgba(253,88,45,0.8673844537815126) 100%);
-}
+/*.playlist:hover {*/
+/*   background: rgb(253,85,45);*/
+/*background: linear-gradient(0deg, rgba(253,85,45,0.8673844537815126) 0%, rgba(253,187,45,1) 100%);*/
+/*!*background: linear-gradient(0deg, rgba(253,155,45,0.8673844537815126) 0%, rgba(253,187,45,1) 100%);*!*/
+/*}*/
+/*.playlist:active {*/
+/*   background: rgb(253,85,45);*/
+/*background: linear-gradient(0deg, rgba(253,85,45,0.8673844537815126) 0%, rgba(253,88,45,0.8673844537815126) 100%);*/
+/*}*/
 .playlist-name {
     font-family: 'Roboto';
     font-size: 1.5em;
@@ -171,6 +172,8 @@ background: linear-gradient(0deg, rgba(253,85,45,0.8673844537815126) 0%, rgba(25
 .playlist-picture {
     float: left;
     margin-right: 77px;
+    height: 200px;
+    width: 200px;
 }
 .playlist-info {
     float: left;

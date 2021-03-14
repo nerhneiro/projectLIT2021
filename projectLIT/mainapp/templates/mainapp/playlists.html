@@ -26,7 +26,7 @@
             <div class="playlists-inside">
                 {%  for album in albums %}
                     <a class="playlist-href" href="{% url 'mainapp:playlist' album.pk %}">
-                <div class="playlist">
+                <div class="playlist" style="background-image: url({{ album.imageURL }})">
                     <div class="playlist-inside">
                         <p class="playlist-name">{{ album.name }}</p>
                         <p class="playlist-time">{{ album.artist.name }}</p>

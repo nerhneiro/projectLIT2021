@@ -1,0 +1,15 @@
+{% extends 'mainapp/base.html' %}
+{%  load bootstrap %}
+{% block title %}Album List{% endblock title %}
+
+{% block content %}
+{{ filter.form | bootstrap }}
+<ul>
+  {% for album in filter.qs %}
+    <li>
+      <a href="{% url 'snippets:detail' album.id %}">{{ album.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+
+{% endblock content %}

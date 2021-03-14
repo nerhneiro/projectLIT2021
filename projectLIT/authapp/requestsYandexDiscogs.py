@@ -2,10 +2,12 @@ from yandex_music.client import Client
 import requests
 import discogs_api as discogs
 import authapp.secret as secret
+from PIL import Image
 import urllib.request
 from bs4 import BeautifulSoup
 import json
 import re
+
 def get_info(album, artists):
     headers = {
         'User-Agent': 'I',

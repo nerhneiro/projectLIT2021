@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mainapp',
-    'authapp'
+    'authapp',
+    # 'django_filters',
+    # 'bootstrapform'
 ]
 
 MIDDLEWARE = [

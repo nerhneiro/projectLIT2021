@@ -1,9 +1,16 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
+from django.urls import reverse
 from .models import Album, Artist, Label, Tag, Genre, Style
 from yandex_music.client import Client
 import authapp.requestsYandexDiscogs as ryd
 from django.shortcuts import redirect
+from PIL import Image
+import requests
+from pathlib import Path
+from django.views import View
+from django.views.generic import ListView, DetailView
+# from .filters import AlbumFilter
 # Create your views here.
 def main(request):
     albums = Album.objects.all()
@@ -26,7 +33,6 @@ def main(request):
     }
     return render(request, 'mainapp/index.html', context)
 
-
 def connected(request):
     yandexMusicConnected = False
     if request.user.is_authenticated:
@@ -44,7 +50,6 @@ def connected(request):
         'yandexMusicConnected': yandexMusicConnected,
     }
     return render(request, 'mainapp/connectedaccounts.html', context)
-
 
 def playlists(request):
     yandexMusicConnected = False
@@ -79,6 +84,11 @@ def updateDB(request):
                 album = al['album']['title']
                 idYM = al['album']['id']
                 albumsIdYM.add(idYM)
+                image_url = 'http://' + al['album']['cover_uri'][:-2] + '600x600'
+                image = Image.open(requests.get(image_url, stream=True).raw)
+                filename = str(al['album']['id']) + '.jpg'
+                p = Path('images/' + filename)
+                image.save(p, format=None)
                 try:
                     # print(user.albums.all())
                     albumExisting = Album.objects.get(idYandex=idYM)
@@ -127,6 +137,7 @@ def updateDB(request):
                                 artistNew = Artist.objects.create(name=ar, idDiscogs=id)
                                 artistNew.save()
                                 albumNew.artists.add(artistNew)
+                    albumNew.image = image
                     albumNew.save()
                     user.albums.add(albumNew)
             albumsIdDB = set()
@@ -185,16 +196,41 @@ def account(request):
         next = request.POST.get('next', '/')
         return HttpResponseRedirect(next)
 
-
 def playlist(request, pk=None):
     if request.user.is_authenticated:
         username = request.user.username
     else:
         username = ''
     album = Album.objects.get(pk=int(pk))
+    genresLength = len(album.genres.all())
+    genresLengthLeft = genresLength - 4
+    if len(album.genres.all()) >= 4:
+        genresArray = [album.genres.all()[x] for x in range(0, 4)]
+    else:
+        genresArray = album.genres.all()
+    genresLeftArray = [album.genres.all()[x] for x in range(4, genresLength)]
+    image = album.imageURL[:-7] + "200x200"
     context = {
         'username': username,
         'album': album,
+        'genresLength': genresLength,
+        'genresLengthLeft': genresLengthLeft,
+        'genresLeftArray': genresLeftArray,
+        'genresArray': genresArray,
+        'image': image,
     }
 
     return render(request, 'mainapp/playlist.html', context)
+
+# class AlbumListView(ListView):
+#     model = Album
+#     template_name = 'mainapp/album_list.html'
+#
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['filter'] = AlbumFilter(self.request.GET, queryset=self.get_queryset())
+#         return context
+#
+# class AlbumDetailView(DetailView):
+#     model = Album
+#     template_name = 'mainapp/album_detail.html'

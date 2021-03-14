@@ -1,0 +1,13 @@
+{% extends 'mainapp/base.html' %}
+
+{% block title %}Album Detail{% endblock title %}
+
+{% block content %}
+
+<h1>{{ album.title }}</h1>
+
+<pre>
+  {{ album.body_preview }}
+</pre>
+
+{% endblock content %}

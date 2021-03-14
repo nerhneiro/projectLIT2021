@@ -22,16 +22,19 @@
     <div class="content-playlist">
        <div class="content-playlist-inside">
         <div class="playlist-header">
-            <div class="playlist-picture"><img src="{% static 'img/playlist-image.png' %}" alt="playlist"></div>
+            <div class="playlist-picture"><img src={{ image }} alt="playlist" ></div>
             <div class="playlist-info">
                 <p class="playlist-info-name">{{ album.name }}</p>
                 <div class="genres-text">
                 <p class="playlist-info-time">3 часа 18 минут</p>
                 <p  class="playlist-info-genres">
-                    {% for genre in album.genres.all %} {{ genre.name }}, {% endfor %}</p>
-                <p class="playlist-add-genres"><a id="href-info" class="playlist-info-href-additional" href="javascript:get_additional_information()">и еще 5 других</a></p>
+                    {% for i in genresArray %} {{ i.name }}{% if not forloop.last %},  {% endif %} {% endfor %}</p>
+                {% if genresLength > 4 %}
+                <p class="playlist-add-genres"><a id="href-info" class="playlist-info-href-additional" href="javascript:get_additional_information({{ genresLengthLeft }})">и еще {{ genresLengthLeft }} других</a></p>
                 <br>
-                <p id="info" class="playlist-info-genres-additional"> <br> кантри, соул, американа, альтернатива, инди-рок</p>
+                <p id="info" class="playlist-info-genres-additional"> <br>
+                    {% for i in genresLeftArray  %} {{ i.name }} {% if not forloop.last %},  {% endif %} {% endfor %}</p>
+                {% endif %}
                 </div>
             </div> 
         </div>

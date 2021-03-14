@@ -12,3 +12,4 @@ class SiteUser(AbstractUser):
     country = models.CharField(max_length=128, blank=True, null=True, verbose_name='country')
     passwordYM = models.CharField(max_length=256, blank=True, verbose_name='Yandex Music password')
     emailYM = models.EmailField(max_length=128, blank=True, verbose_name='yandex Music email')
+    # friends = models.ManyToManyField(auth.SiteUser, null=True, verbose_name='friends', related_name='friend_to')

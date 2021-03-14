@@ -53,13 +53,13 @@ function manager(event) {
     }
 }
 
-function get_additional_information() {
+function get_additional_information(number) {
     genres = document.getElementById("info");
     controller = document.getElementById("href-info");
 
     if( genres.style.visibility === "visible" ) {
         genres.style.visibility = "hidden";
-        controller.textContent = "и еще 5 других";
+        controller.textContent = "и еще " + number + " других" ;
     }
     else {
         genres.style.visibility = "visible";

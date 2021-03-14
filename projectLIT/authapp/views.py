@@ -5,6 +5,12 @@ from django.urls import reverse
 from yandex_music.client import Client
 import authapp.requestsYandexDiscogs as ryd
 from mainapp.models import Album, Artist, Label, Tag, Genre, Style
+from urllib.request import urlopen
+from PIL import Image
+import requests
+from pathlib import Path
+from django.core.files import File
+from tempfile import NamedTemporaryFile
 
 def login(request):
     title = 'вход'
@@ -97,6 +103,15 @@ def connectYM(request):
                     artists.append((ar['name'], ar['id']))
                 album = al['album']['title']
                 idYM = al['album']['id']
+                image_url = 'http://' + al['album']['cover_uri'][:-2] + '300x300'
+                # image = Image.open(requests.get(image_url, stream=True).raw)
+                filename = str(al['album']['id']) + '.jpg'
+                # p = Path('authapp/images/' + filename)
+                # image.save(p, format=None)
+                # img_temp = NamedTemporaryFile(delete=True)
+                # img_temp.write(urlopen(image_url).read())
+                # img_temp.flush()
+
                 try:
                     # print(user.albums.all())
                     albumExisting = Album.objects.get(idYandex=idYM)
@@ -145,6 +160,11 @@ def connectYM(request):
                                 artistNew = Artist.objects.create(name=ar, idDiscogs=id)
                                 artistNew.save()
                                 albumNew.artists.add(artistNew)
+                    # albumNew.image = image
+                    # albumNew.image.save()
+                    # albumNew.image.save(p, File(open(p)))
+                    # albumNew.image.save(filename, File(img_temp))
+                    albumNew.imageURL = image_url
                     albumNew.save()
                     user.albums.add(albumNew)
             return HttpResponseRedirect(reverse('mainapp:main'))
