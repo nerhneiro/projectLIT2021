@@ -26,16 +26,24 @@
             <div class="playlist-info">
                 <p class="playlist-info-name">{{ album.name }}</p>
                 <div class="genres-text">
-                <p class="playlist-info-time">3 часа 18 минут</p>
-                <p  class="playlist-info-genres">
-                    {% for i in genresArray %} {{ i.name }}{% if not forloop.last %},  {% endif %} {% endfor %}</p>
-                {% if genresLength > 4 %}
-                <p class="playlist-add-genres"><a id="href-info" class="playlist-info-href-additional" href="javascript:get_additional_information({{ genresLengthLeft }})">и еще {{ genresLengthLeft }} других</a></p>
-                <br>
-                <p id="info" class="playlist-info-genres-additional"> <br>
-                    {% for i in genresLeftArray  %} {{ i.name }} {% if not forloop.last %},  {% endif %} {% endfor %}</p>
-                {% endif %}
+                <p  class="playlist-info-genres">Genres:
+                    {% for i in album.genres.all %} {{ i.name }}{% if not forloop.last %},  {% endif %} {% endfor %}</p>
+{#                    {% for i in genresArray %}Genres: {{ i.name }}{% if not forloop.last %},  {% endif %} {% endfor %}</p>#}
+{#                {% if genresLength > 4 %}#}
+{#                <p class="playlist-add-genres"><a id="href-info" class="playlist-info-href-additional" href="javascript:get_additional_information({{ genresLengthLeft }})">и еще {{ genresLengthLeft }} других</a></p>#}
+{#                <br>#}
+{#                <p id="info" class="playlist-info-genres-additional"> <br>#}
+{#                    {% for i in genresLeftArray  %} {{ i.name }} {% if not forloop.last %},  {% endif %} {% endfor %}</p>#}
+{#                {% endif %}#}
                 </div>
+            <br>
+            <div class="playlist-info-genres">
+                <p>Styles: {% for i in album.styles.all %}{{ i.name }}{% if not forloop.last %},  {% endif %} {% endfor %}</p>
+            </div>
+            <br>
+            <div class="playlist-info-genres">
+                <p>Labels: {% for i in album.labels.all %}{{ i.name }}{% if not forloop.last %},  {% endif %} {% endfor %}</p>
+            </div>
             </div> 
         </div>
     </div>
